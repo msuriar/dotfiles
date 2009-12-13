@@ -1,6 +1,23 @@
 ### Linux specific stuff
 
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='ls --color=auto --format=vertical'
+    alias vdir='ls --color=auto --format=long'
+    #alias screen='TERM=screen screen'
+    alias vi='vim'
+    alias vr='vim -R'
+fi
+
+### Unused, but might come in handy some day.
+#alias ls='ls -CFh --color=tty'
+
+# Screen stuff
 if which screen; then
+
+	alias screen='screen -U'
 
 	function screenTelnet()
 	{

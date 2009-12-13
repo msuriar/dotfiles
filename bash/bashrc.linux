@@ -39,8 +39,6 @@ export PS1
 MANPAGER='col -b | /usr/bin/vim -R -c "set nonumber" -c "set syntax=man" -'
 export MANPAGER
 
-alias vi='vim' # Wooooohooo!
-
 #### Stuff I don't use, but might come in handy one day....
 
 #	man ()
@@ -49,4 +47,3 @@ alias vi='vim' # Wooooohooo!
 #	/usr/bin/man $sought | col -b | vi -R -c "set nonumber" -c "set syntax=man" -
 #	}
 
-#alias ls='ls -CFh --color=tty'
