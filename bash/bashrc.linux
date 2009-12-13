@@ -36,7 +36,7 @@ export PS1
 # End prompt stuff
 
 # Read manpages in vi
-MANPAGER='col -b | /usr/bin/vim -R -c "set nonumber" -c "set syntax=man" -'
+MANPAGER="bash -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man' -\""
 export MANPAGER
 
 #### Stuff I don't use, but might come in handy one day....
