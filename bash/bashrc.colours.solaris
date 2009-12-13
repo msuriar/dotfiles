@@ -1,0 +1,32 @@
+# Colours
+
+COL_RST='\[\033[0m\]' # Remove all colour formatting
+
+COL_K='\[\033[0;30m\]' # Black
+COL_R='\[\033[0;31m\]' # Red
+COL_G='\[\033[0;32m\]' # Green
+COL_Y='\[\033[0;33m\]' # Yello
+COL_B='\[\033[0;34m\]' # Blue
+COL_M='\[\033[0;35m\]' # Magenta
+COL_C='\[\033[0;36m\]' # Cyan
+COL_W='\[\033[0;37m\]' # White
+
+# Emphasised (brighter/bolded) Colours
+COL_EMK='\[\033[1;30m\]' # Black
+COL_EMR='\[\033[1;31m\]' # Red
+COL_EMG='\[\033[1;32m\]' # Green
+COL_EMY='\[\033[1;33m\]' # Yello
+COL_EMB='\[\033[1;34m\]' # Blue
+COL_EMM='\[\033[1;35m\]' # Magenta
+COL_EMC='\[\033[1;36m\]' # Cyan
+COL_EMW='\[\033[1;37m\]' # White
+
+# Background Colours
+COL_BGK='\[\033[40m\]' # Black
+COL_BGR='\[\033[41m\]' # Red
+COL_BGG='\[\033[42m\]' # Green
+COL_BGY='\[\033[43m\]' # Yello
+COL_BGB='\[\033[44m\]' # Blue
+COL_BGM='\[\033[45m\]' # Magenta
+COL_BGC='\[\033[46m\]' # Cyan
+COL_BGW='\[\033[47m\]' # White

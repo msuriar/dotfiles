@@ -1,0 +1,29 @@
+# Control codes
+
+COL_RST=$(tput sgr0)  # Remove all colour formatting
+COL_BRIGHT=$(tput bold) # Emphasise
+COL_DIM=$(tput dim) # Dim
+COL_TITLE=$(tput tsl) # Begin titlebar text
+COL_ENDTITLE=$(tput fsl) # End titlebar text
+
+# Foreground
+COL_K=$(tput setaf 0) # Black
+COL_R=$(tput setaf 1) # Red
+COL_G=$(tput setaf 2) # Green
+COL_Y=$(tput setaf 3) # Yello
+COL_B=$(tput setaf 4) # Blue
+COL_M=$(tput setaf 5) # Magenta
+COL_C=$(tput setaf 6) # Cyan
+COL_W=$(tput setaf 7) # White
+COL_D=$(tput setaf 9) # Default
+
+# Background Colours
+COL_BGK=$(tput setab 0) # Black
+COL_BGR=$(tput setab 1) # Red
+COL_BGG=$(tput setab 2) # Green
+COL_BGY=$(tput setab 3) # Yello
+COL_BGB=$(tput setab 4) # Blue
+COL_BGM=$(tput setab 5) # Magenta
+COL_BGC=$(tput setab 6) # Cyan
+COL_BGW=$(tput setab 7) # White
+COL_BGD=$(tput setab 9) # Default
