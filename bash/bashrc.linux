@@ -1,39 +1,3 @@
-### Linux specific stuff
-
-function screenTelnet()
-{
-if which screen
-then screen -t "$@" telnet "$@"
-else telnet "$@"
-fi
-}
-
-function rl()
-{
-if which screen
-then screen -t "$@" rlogin "$@"
-else rlogin "$@"
-fi
-}
-
-function screenSsh()
-{
-if which screen
-then screen -t "$@" ssh "$@"
-else ssh "$@"
-fi
-}
-
-
-function s()
-{
-if nc -z -w 2 "$@" 22
-then screenSsh "$@"
-else screenTelnet "$@"
-fi
-}
-
-alias t=s
 ## Begin prompt stuff.
 
 . ~/.bash/bashrc.colours
@@ -73,12 +37,13 @@ MANPAGER='col -b | /usr/bin/vim -R -c "set nonumber" -c "set syntax=man" -'
 export MANPAGER
 
 alias vi='vim' # Wooooohooo!
-alias pb='screen -t "pbgate" -T "vt100" /usr/kerberos/bin/rlogin pbgate-vip.ln.fw.gs.com'
-#alias ls='ls -CFh --color=tty'
 
 #### Stuff I don't use, but might come in handy one day....
+
 #	man ()
 #	{
 #	sought=$*
 #	/usr/bin/man $sought | col -b | vi -R -c "set nonumber" -c "set syntax=man" -
 #	}
+
+#alias ls='ls -CFh --color=tty'

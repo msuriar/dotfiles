@@ -1,0 +1,4 @@
+# Aliases common across all OSes
+alias trace='traceroute'
+alias vr='vi -R' # Open something read only
+alias l='ls -CF' # columnise and put sigils on ls output

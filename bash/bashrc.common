@@ -1,30 +1,36 @@
 # Common parameters, to be set in all cases.
 
-#stty sane # Try and make sure keybindings aren't broken
-umask 0023 # Set sensible default permissions
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
-EDITOR=vim # vim rocks
+# History stuff
 HISTIGNORE="&:ls:[bf]g:exit" # Don't log repeated commands, ls, bg, fg and exit
 HISTFILESIZE=500000 # Moar history
 HISTSIZE=100000 # Moar history
 HISTCONTROL="ignoreboth" # Ignore duplicate commands, and ignore commands prefixed with space
-export DISPLAY EDITOR CVSROOT HISTIGNORE HISTSIZE HISTFILESIZE HISTCONTROL
-
-set -o vi # vim editing in the commandline
 shopt -s histappend # Don't overwrite history on logout.
 
-### Aliases
-alias trace='traceroute'
-alias vr='vi -R' # Open something read only
-alias l='ls -CF' # columnise and put sigils on ls output
+# vi, vim, everywhere
+set -o vi # vim editing in the commandline
+EDITOR=vim # vim rocks
 
-. ~/.bash/bashrc.dc2
+# Check the window size after every command, and if necessary update LINES and COLUMNS
+shopt -s checkwinsize
+
+### Aliases that are OS agnostic
+if [ -f ~/.bash/bash_aliases.common ]; then
+	. ~/.bash/bash_aliases.common
+fi
+
+export DISPLAY EDITOR HISTIGNORE HISTSIZE HISTFILESIZE HISTCONTROL
 
 case `uname` in
 	SunOS|Solaris)
 		. ~/.bash/bashrc.solaris
+		. ~/.bash/bash_aliases.solaris
 		;;
 	Linux)
 		. ~/.bash/bashrc.linux
+		. ~/.bash/bash_aliases.linux
 		;;
 esac

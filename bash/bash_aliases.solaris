@@ -1,0 +1,9 @@
+function t()
+{
+	telnet "$@"
+}
+
+function rl()
+{
+	krlogin "$@"
+}
