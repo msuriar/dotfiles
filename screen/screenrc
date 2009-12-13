@@ -1,33 +1,36 @@
+# UTF8 ftw
+defutf8 on
+
 # No startup message
 startup_message off
 
 # backtick command to store the timezone from the 'date' command
 backtick 1 3600 3600 date +%Z
 
-# Old caption.
-# caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
-
 termcap xterm* hs
 
-#term xterm+sl
+# Misc h4x for scrollback
+terminfo * te@:ti@
+termcapinfo xterm|xterms|xs|rxvt ti=\E7\E[?47l
+defscrollback 10000
 
-# Current caption. Hostname, list of windows, machine load, date/time/timezone
-caption always "%{=}%?%{r}%H %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-35=%l %Y/%m/%d/%0c/%1`"
-crlf off
+
+# Bells are annoying
+vbell_msg "  -- Ring, Ring!! --  "
+vbell on
+autodetach on
 
 escape `` # Set backtick to be the escape character instead of ^A
+# Instead of backticks, use $(command)
 
-vbell off
-vbell_msg "  --- Blart! ---  " # Default is wuff wuff (?!)
-defscrollback 10000 # Default 100
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 # Set shell
 shell -/bin/bash
 
 # Clear some stuff that's bound by default and could cause problems. (Kill session etc)
-bind k
-bind ^k
+bind k # no quick kill
+bind ^k # no quick kill
 bind .
 bind ^\
 bind \\
@@ -41,3 +44,22 @@ bind '}' history
 
 # Set default log directory. (Logging is started by "<EscapeChar> H" by default)
 logfile $HOMEDIR".screen/logs/%t.%Y%m%d_%0c"
+
+# Status line of ultimate win!
+hardstatus alwayslastline
+# See the "STRING ESCAPES" section of the screen manpage
+# I can't remember which Debian person got me started.
+# A note on colours: %{abc} where a is things like d for dim, b for bold, ..
+#       b is the background colour
+#       c is the foreground colour
+#   A . in any of those places indicates that setting should not be changed
+# 1 - Blue background and white foreground
+# 2 - List all windows before the current window
+# 3 - Show the current window with a red background
+# 4 - List the remaining windows with a blue background
+# 5 - Pad to the width of the screen.  This makes the rest right justified.
+# 6 - Switch to green text to show the hostname
+# 7 - Switch to yellow text to show the date in ISO8601 and the time in 24 hour
+#                   1     2     3     4        5    6        7
+# hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %Y-%m-%d %c"
+hardstatus string "%{=}%?%{r}%H %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-35=%l %Y-%m-%d-%0c%1`"
