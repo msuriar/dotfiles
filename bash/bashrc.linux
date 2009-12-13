@@ -29,7 +29,7 @@ TIME="(\D{%H:%M})"
 PROMPT="${COL_USR}\u${COL_RST}@${COL_HST}\h${COL_RST}:${COL_PWD}\W${COL_RST}"
 
 # Put it all together....
-PS1="[$PROMPT]\\$ "
+PS1="[$PROMPT]\$ "
 
 export PS1
 
