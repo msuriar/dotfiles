@@ -1,0 +1,43 @@
+# No startup message
+startup_message off
+
+# backtick command to store the timezone from the 'date' command
+backtick 1 3600 3600 date +%Z
+
+# Old caption.
+# caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
+
+termcap xterm* hs
+
+#term xterm+sl
+
+# Current caption. Hostname, list of windows, machine load, date/time/timezone
+caption always "%{=}%?%{r}%H %L=%{+b}%?%{b}%-Lw%47L>%?%{w}%n*%f %t %?%{b}%+Lw%?%{g}%-35=%l %Y/%m/%d/%0c/%1`"
+crlf off
+
+escape `` # Set backtick to be the escape character instead of ^A
+
+vbell off
+vbell_msg "  --- Blart! ---  " # Default is wuff wuff (?!)
+defscrollback 10000 # Default 100
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# Set shell
+shell -/bin/bash
+
+# Clear some stuff that's bound by default and could cause problems. (Kill session etc)
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+bind s
+
+# Bind kill and history, as they are quite useful.
+bind 'K' kill
+bind '}' history
+
+# Set default log directory. (Logging is started by "<EscapeChar> H" by default)
+logfile $HOMEDIR".screen/logs/%t.%Y%m%d_%0c"
