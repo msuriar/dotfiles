@@ -1,7 +1,12 @@
-PATH=/sbin:/usr/sbin:$PATH:/opt/bin:/opt/gnu/bin:/usr/X/bin:/opt/checkout:~/sbin:~/bin # Add useful locations to path
-export PATH
+# the default umask is set in /etc/login.defs
+umask 022
 
+# include .bashrc if it exists
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
 
-if [ -f $HOME/.bashrc ]; then
-	. $HOME/.bashrc
+# set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+    PATH=~/bin:"${PATH}"
 fi
