@@ -1,9 +1,13 @@
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+	set fileencodings=utf-8,latin1
+endif
+
 " Display behaviour
-set nocompatible
-set number
-set ruler
-set showcmd
-" colorscheme torte
+set nocompatible	" use vim defaults
+set number				" Always show line numbers
+set ruler					" Always show ruler
+set showcmd				" Always...
+colorscheme torte
 set background=dark
 
 " Search behaviour
@@ -27,15 +31,24 @@ set wildmode=longest,full
 filetype on
 syntax on
 
+" Clipboard behaviour
+set clipboard=exclude:.* " don't try and query X server
+
 "flag problematic whitespace (trailing and spaces before tabs)
 "Note you get the same by doing let c_space_errors=1 but
 "this rule really applys to everything.
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
+
 "use :set list! to toggle visible whitespace on/off
 set listchars=tab:>-,trail:.,extends:>
 
+" Tab behaviour
+set tabstop=2
+set shiftwidth=2
+set noexpandtab
 
 nmap <C-N><C-N> :set nu! nu? <CR>
 nmap <C-H><C-H> :set hls! hls? <CR>
 nmap <C-A><C-A> :set autoindent! autoindent? <CR>
+nmap <C-L><C-L> :set list! list? <CR>
