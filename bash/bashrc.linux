@@ -13,6 +13,9 @@ case `hostname` in
 	ln??[pc]*)
 		COL_HST=${COL_R}${COL_BRIGHT}
 		;;
+	*)
+		COL_HST=${COL_G}${COL_BRIGHT}
+		;;
 esac
 
 # Change title bar

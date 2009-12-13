@@ -1,52 +1,41 @@
 ### Linux specific stuff
 
-function screenTelnet()
-{
-	if which screen
-		then screen -t "$1" telnet "$@"
-		else telnet "$@"
-	fi
-}
+if which screen; then
 
-function rl()
-{
-	if which screen
-		then screen -t "$1" rlogin "$1"
-		else rlogin "$1"
-	fi
-}
+	function screenTelnet()
+	{
+		screen -t "$1" telnet "$@"
+	}
 
-function screenSsh()
-{
-	if which screen
-		then screen -t "$1" ssh "$1"
-		else ssh "$1"
-	fi
-}
+	function rl()
+	{
+		screen -t "$1" rlogin "$1"
+	}
+
+	function screenSsh()
+	{
+		screen -t "$1" ssh "$1"
+	}
 
 
-function s()
-{
-	if nc -z -w 2 "$@" 22
-		then screenSsh "$@"
-		else screenTelnet "$@"
-	fi
-}
+	function s()
+	{
+		if nc -z -w 2 "$@" 22; then
+			screenSsh "$@"; else
+			screenTelnet "$@"
+		fi
+	}
 
-function v()
-{
-	if which screen
-		then screen -t "$(basename $1)" vi "$1"
-		else vi "$1"
-	fi
-}
+	function v()
+	{
+		screen -t "$(basename $1)" vi "$1"
+	}
 
-if which screen
-	then
-		function vr()
-		{
-			screen -t "$(basename $1)" vi -R "$1"
-		}
+	function vr()
+	{
+		screen -t "$(basename $1)" vi -R "$1"
+	}
+
+	alias t=s
+
 fi
-
-alias t=screenTelnet

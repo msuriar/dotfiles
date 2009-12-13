@@ -26,11 +26,21 @@ export DISPLAY EDITOR HISTIGNORE HISTSIZE HISTFILESIZE HISTCONTROL
 
 case `uname` in
 	SunOS|Solaris)
-		. ~/.bash/bashrc.solaris
-		. ~/.bash/bash_aliases.solaris
+		if [ -f ~/.bash/bashrc.solaris ]; then
+			. ~/.bash/bashrc.solaris
+		fi
+
+		if [ -f ~/.bash/bash_aliases.solaris ]; then
+			. ~/.bash/bash_aliases.solaris
+		fi
 		;;
 	Linux)
-		. ~/.bash/bashrc.linux
-		. ~/.bash/bash_aliases.linux
+		if [ -f ~/.bash/bashrc.linux ]; then
+			. ~/.bash/bashrc.linux
+		fi
+
+		if [ -f ~/.bash/bash_aliases.linux ]; then
+			. ~/.bash/bash_aliases.linux
+		fi
 		;;
 esac
