@@ -22,6 +22,11 @@ if [ -f ~/.bash/bash_aliases.common ]; then
 	. ~/.bash/bash_aliases.common
 fi
 
+### Source /etc/bash_completion if it exists
+if [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
+fi
+
 export DISPLAY EDITOR HISTIGNORE HISTSIZE HISTFILESIZE HISTCONTROL
 
 case `uname` in
