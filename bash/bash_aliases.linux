@@ -35,14 +35,6 @@ if which screen; then
 	}
 
 
-	function s()
-	{
-		if nc -z -w 2 "$@" 22; then
-			screenSsh "$@"; else
-			screenTelnet "$@"
-		fi
-	}
-
 	function v()
 	{
 		screen -t "$(basename $1)" vi "$1"
@@ -53,6 +45,8 @@ if which screen; then
 	{
 		screen -t "$(basename $1)" vi -R "$1"
 	}
+
+	alias s=screenSsh
 
 	alias t=s
 
