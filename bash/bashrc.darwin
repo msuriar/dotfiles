@@ -1,3 +1,8 @@
+## Colours.
+
+CLICOLOR=1
+export CLICOLOR
+
 ## Begin prompt stuff.
 
 . ~/.bash/bashrc.colours
