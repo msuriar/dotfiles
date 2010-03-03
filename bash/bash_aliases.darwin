@@ -11,7 +11,7 @@ fi
 #alias ls='ls -CFh --color=tty'
 
 # Screen stuff
-if which screen; then
+if which screen 1> /dev/null ; then
 
 	alias screen='screen -U'
 
