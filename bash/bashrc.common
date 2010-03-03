@@ -48,4 +48,13 @@ case `uname` in
 			. ~/.bash/bash_aliases.linux
 		fi
 		;;
+	Darwin)
+		if [ -f ~/.bash/bashrc.darwin ]; then
+			. ~/.bash/bashrc.darwin
+		fi
+
+		if [ -f ~/.bash/bash_aliases.darwin ]; then
+			. ~/.bash/bash_aliases.darwin
+		fi
+		;;
 esac
