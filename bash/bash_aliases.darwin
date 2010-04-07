@@ -44,6 +44,6 @@ if which screen 1> /dev/null ; then
 
 	alias s=screenSsh
 
-	alias t=s
+	alias t=screenTelnet
 
 fi
