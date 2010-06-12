@@ -31,7 +31,7 @@ if which screen 1> /dev/null ; then
 
 	function screenSsh()
 	{
-		screen -t "$1" ssh "$1"
+		screen -t "$1" ssh "$@"
 	}
 
 
@@ -48,6 +48,6 @@ if which screen 1> /dev/null ; then
 
 	alias s=screenSsh
 
-	alias t=s
+	alias t=screenTelnet
 
 fi
