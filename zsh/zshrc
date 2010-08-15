@@ -8,16 +8,25 @@ setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
 
 EDITOR=vim
 
-export HISTFILE HISTSIZE SAVEHIST EDITOR
+MANPAGER="bash -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man' -\""
 
-# Common aliases
-if [[ -r ~/.zsh/zsh-aliases.common ]] ; then
-	. ~/.zsh/zsh-aliases.common
-fi
+export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER
 
 # Autoloads
 autoload -U compinit promptinit
 compinit
 promptinit
 
-# TODO: Platform specific aliases and zprofiles. Need to learn about case statements.
+# Common aliases
+[[ -r ~/.zsh/zsh-aliases.common ]] && . ~/.zsh/zsh-aliases.common
+
+case $(uname) in
+	(Linux)
+		[[ -r ~/.zsh/zshrc.linux ]] && . ~/.zsh/zshrc.linux
+		[[ -r ~/.zsh/zsh-aliases.linux ]] && . ~/.zsh/zsh-aliases.linux
+	;;
+	(Darwin)
+		[[ -r ~/.zsh/zshrc.darwin ]] && . ~/.zsh/zshrc.darwin
+		[[ -r ~/.zsh/zsh-aliases.darwin ]] && . ~/.zsh/zsh-aliases.darwin
+	;;
+esac
