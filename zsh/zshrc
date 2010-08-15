@@ -1,0 +1,16 @@
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
+
+EDITOR=vim
+
+export HISTSIZE SAVEHIST EDITOR
+
+# TODO: Import common aliases. Need to learn about if statements and sourcing
+
+# TODO: set up autocompletion, need to learn about loading modules
+
+# TODO: Platform specific aliases and zprofiles. Need to learn about case statements.
