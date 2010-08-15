@@ -10,7 +10,7 @@ alias l.='ls -lAd .*'
 alias vi='vim'
 alias vr='vim -R'
 
-if which screen 1 /dev/null; then
+if which screen 1> /dev/null; then
 
 	alias screen='screen -U'
 
