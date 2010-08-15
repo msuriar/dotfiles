@@ -2,6 +2,4 @@
 umask 022
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
-fi
+[[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
