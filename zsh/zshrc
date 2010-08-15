@@ -30,3 +30,6 @@ case $(uname) in
 		[[ -r ~/.zsh/zsh-aliases.darwin ]] && . ~/.zsh/zsh-aliases.darwin
 	;;
 esac
+
+# Prompt
+prompt clint
