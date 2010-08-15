@@ -1,3 +1,4 @@
+HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
@@ -7,10 +8,16 @@ setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
 
 EDITOR=vim
 
-export HISTSIZE SAVEHIST EDITOR
+export HISTFILE HISTSIZE SAVEHIST EDITOR
 
-# TODO: Import common aliases. Need to learn about if statements and sourcing
+# Common aliases
+if [[ -r ~/.zsh/zsh-aliases.common ]] ; then
+	. ~/.zsh/zsh-aliases.common
+fi
 
-# TODO: set up autocompletion, need to learn about loading modules
+# Autoloads
+autoload -U compinit promptinit
+compinit
+promptinit
 
 # TODO: Platform specific aliases and zprofiles. Need to learn about case statements.
