@@ -31,5 +31,9 @@ case $(uname) in
 	;;
 esac
 
+# Source local files if they exist.
+[[ -r ~/.zsh/zshrc.local ]] && . ~/.zsh/zshrc.local
+[[ -r ~/.zsh/zsh-aliases.local ]] && . ~/.zsh/zsh-aliases.local
+
 # Prompt
 prompt clint
