@@ -1,0 +1,30 @@
+alias screen='screen -U'
+
+function screenTelnet()
+{
+	screen -t "$1" telnet "$@"
+}
+
+function screenSsh()
+{
+	screen -t "$1" ssh "$@"
+}
+
+function v()
+{
+	screen -t "$(basename $1)" vi "$1"
+}
+
+unalias vr # Aliased to 'vi -R' earlier on
+function vr()
+{
+	screen -t "$(basename $1)" vi -R "$1"
+}
+
+function m()
+{
+	screen -t "man.$1" man "$1"
+}
+
+alias s=screenSsh
+alias t=screenTelnet
