@@ -6,9 +6,16 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l.='ls -lAd .*'
 
-# Almost certainly will be overridden by screen equivalents; here as a fallback.
+# Almost certainly will be reset by screen/tmux equivalents; here as a fallback.
 alias vi='vim'
 alias vr='vim -R'
+
+# Multiplexer logic.
+# Check if $TMUX is set; failing that, check for the existence of screen
+
+if [[ -n $TMUX ]] ; then
+	[[ -r ~/.zsh/zsh-aliases.tmux ]] && . ~/.zsh/zsh-aliases.tmux
+fi
 
 if which screen 1> /dev/null; then
 	[[ -r ~/.zsh/zsh-aliases.screen ]] && . ~/.zsh/zsh-aliases.screen
