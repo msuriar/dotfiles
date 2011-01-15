@@ -15,8 +15,6 @@ alias vr='vim -R'
 
 if [[ -n $TMUX ]] ; then
 	[[ -r ~/.zsh/zsh-aliases.tmux ]] && . ~/.zsh/zsh-aliases.tmux
-fi
-
-if which screen 1> /dev/null; then
+elif which screen 1> /dev/null; then
 	[[ -r ~/.zsh/zsh-aliases.screen ]] && . ~/.zsh/zsh-aliases.screen
 fi
