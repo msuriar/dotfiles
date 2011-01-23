@@ -3,3 +3,5 @@ umask 022
 
 # set PATH so it includes user's private bin if it exists
 [[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
+
+[[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
