@@ -10,6 +10,13 @@ alias l.='ls -lAd .*'
 alias vi='vim'
 alias vr='vim -R'
 
+# grep colours. Present in OSX and Linux, so can be here rather than in platform specific like ls.
+if [[ "$TERM" != "dumb" ]]; then
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
 # Multiplexer logic.
 # Check if $TMUX is set; failing that, check for the existence of screen
 
