@@ -8,7 +8,7 @@ setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
 
 EDITOR=vim
 
-MANPAGER="bash -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man' -\""
+MANPAGER="zsh -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man' -\""
 
 export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER
 
