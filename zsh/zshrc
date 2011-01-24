@@ -20,18 +20,11 @@ promptinit
 # Common aliases
 [[ -r ~/.zsh/zsh-aliases.common ]] && . ~/.zsh/zsh-aliases.common
 
-case $(uname) in
-	(Linux)
-		[[ -r ~/.zsh/zshrc.linux ]] && . ~/.zsh/zshrc.linux
-		[[ -r ~/.zsh/zsh-aliases.linux ]] && . ~/.zsh/zsh-aliases.linux
-	;;
-	(Darwin)
-		[[ -r ~/.zsh/zshrc.darwin ]] && . ~/.zsh/zshrc.darwin
-		[[ -r ~/.zsh/zsh-aliases.darwin ]] && . ~/.zsh/zsh-aliases.darwin
-	;;
-esac
+# Look for and source platform specific files.
+[[ -r ~/.zsh/zshrc.$(uname -s) ]] && . ~/.zsh/zshrc.$(uname -s)
+[[ -r ~/.zsh/zsh-aliases.$(uname -s) ]] && . ~/.zsh/zsh-aliases.$(uname -s)
 
-# Source local files if they exist.
+# Source machine local files if they exist.
 [[ -r ~/.zsh/zshrc.local ]] && . ~/.zsh/zshrc.local
 [[ -r ~/.zsh/zsh-aliases.local ]] && . ~/.zsh/zsh-aliases.local
 
