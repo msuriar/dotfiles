@@ -13,9 +13,12 @@ MANPAGER="zsh -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man
 export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER
 
 # Autoloads
-autoload -U compinit promptinit
+autoload -U compinit promptinit edit-command-line
 compinit
 promptinit
+
+# Editing command lines in vim
+bindkey -M vicmd v edit-command-line
 
 # Common aliases
 [[ -r ~/.zsh/zsh-aliases.common ]] && . ~/.zsh/zsh-aliases.common
