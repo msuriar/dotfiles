@@ -18,6 +18,7 @@ compinit
 promptinit
 
 # Editing command lines in vim
+zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Common aliases
