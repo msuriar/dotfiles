@@ -3,6 +3,4 @@
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     alias ls='ls -G'
-    alias vi='vim'
-    alias vr='vim -R'
 fi
