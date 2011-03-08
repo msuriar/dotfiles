@@ -25,9 +25,6 @@ escape `` # Set backtick to be the escape character instead of ^A
 
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
-# Set shell
-shell -/bin/bash
-
 # Clear some stuff that's bound by default and could cause problems. (Kill session etc)
 bind k # no quick kill
 bind ^k # no quick kill
