@@ -10,7 +10,7 @@ set nocompatible	" use vim defaults
 set number				" Always show line numbers
 set ruler					" Always show ruler
 set showcmd				" Always...
-colorscheme torte
+colorscheme molokai
 set background=dark
 
 " Search behaviour
