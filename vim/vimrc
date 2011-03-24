@@ -10,8 +10,9 @@ set nocompatible	" use vim defaults
 set number				" Always show line numbers
 set ruler					" Always show ruler
 set showcmd				" Always...
-colorscheme molokai
 set background=dark
+let g:molokai_original=0
+colorscheme molokai
 
 " Search behaviour
 set incsearch
