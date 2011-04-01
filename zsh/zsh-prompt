@@ -1,8 +1,16 @@
+# Options enabling hooks and substitutions
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 setopt promptsubst
 
+if [[ -n $SSH_CLIENT ]]; then
+	HOSTNAMECOLOUR='cyan'
+else
+	HOSTNAMECOLOUR='green'
+fi
+
+# Git stuff.
 export __CURRENT_GIT_BRANCH=
 
 parse_git_branch() {
@@ -12,7 +20,7 @@ parse_git_branch() {
 
 preexec_functions+='zsh_preexec_update_git_vars'
 zsh_preexec_update_git_vars() {
-	case "$(history $HISTCMD)" in 
+	case "$(history $HISTCMD)" in
 		*git*)
 		export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
 		;;
@@ -28,7 +36,7 @@ get_git_prompt_info() {
 	echo $__CURRENT_GIT_BRANCH
 }
 
-PROMPT='%{[%B%F{yellow}%n%f@%F{green}%m%f:%F{blue}%~%f%b]%}$(get_git_prompt_info)
+PROMPT='%{[%B%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f%b]%}$(get_git_prompt_info)
 %# '
 
 export PROMPT RPROMPT
