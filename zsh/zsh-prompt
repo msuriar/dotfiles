@@ -1,5 +1,11 @@
-PROMPT='%{%F{yellow}%n%f@%F{green}%m%f:%F{blue}%~%f%}
-%# '
+typeset -ga preexec_functions
+typeset -ga precmd_functions
+typeset -ga chpwd_functions
+setopt substprompt
 
+PROMPT="[%B%{%F{yellow}%n%f@%F{green}%m%f:%F{blue}%~%f%b%}]
+%# "
 
-export PROMPT
+RPROMPT=""
+
+export PROMPT RPROMPT
