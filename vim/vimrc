@@ -52,6 +52,10 @@ set tabstop=2
 set shiftwidth=2
 set noexpandtab
 
+" Swapfiles in ~/tmp
+set backupdir=~/tmp,/tmp
+set directory=~/tmp,/tmp
+
 nmap <C-N><C-N> :set nu! nu? <CR>
 nmap <C-H><C-H> :set hls! hls? <CR>
 nmap <C-A><C-A> :set autoindent! autoindent? <CR>
