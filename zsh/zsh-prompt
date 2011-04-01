@@ -1,11 +1,34 @@
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
-setopt substprompt
+setopt promptsubst
 
-PROMPT="[%B%{%F{yellow}%n%f@%F{green}%m%f:%F{blue}%~%f%b%}]
-%# "
+export __CURRENT_GIT_BRANCH=
 
-RPROMPT=""
+parse_git_branch() {
+	git branch --no-color 2> /dev/null \
+	| grep '^\*' | sed -e 's/^\* \(.*\)/(%F{red}\1%f)/'
+}
+
+preexec_functions+='zsh_preexec_update_git_vars'
+zsh_preexec_update_git_vars() {
+	case "$(history $HISTCMD)" in 
+		*git*)
+		export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+		;;
+	esac
+}
+
+chpwd_functions+='zsh_chpwd_update_git_vars'
+zsh_chpwd_update_git_vars() {
+	export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+}
+
+get_git_prompt_info() {
+	echo $__CURRENT_GIT_BRANCH
+}
+
+PROMPT='%{[%B%F{yellow}%n%f@%F{green}%m%f:%F{blue}%~%f%b]%}$(get_git_prompt_info)
+%# '
 
 export PROMPT RPROMPT
