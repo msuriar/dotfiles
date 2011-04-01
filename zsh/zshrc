@@ -33,4 +33,4 @@ bindkey -M vicmd v edit-command-line
 [[ -r ~/.zsh/zsh-aliases.local ]] && . ~/.zsh/zsh-aliases.local
 
 # Prompt
-prompt clint
+[[ -r ~/.zsh/zsh-prompt ]] && . ~/.zsh/zsh-prompt
