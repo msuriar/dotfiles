@@ -4,3 +4,5 @@
 	branch = auto
 [alias]
 	stat = status
+[merge]
+	tool = vimdiff
