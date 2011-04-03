@@ -1,7 +1,11 @@
+[user]
+	name = Murali Suriar
+	email = code@suriar.com
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+	interactive = auto
 [alias]
 	stat = status
 [merge]
