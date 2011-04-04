@@ -36,7 +36,7 @@ get_git_prompt_info() {
 	echo $__CURRENT_GIT_BRANCH
 }
 
-PROMPT='%{[%B%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f%b]%}$(get_git_prompt_info)
+PROMPT='%{[%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f]%}$(get_git_prompt_info)
 %# '
 
 export PROMPT RPROMPT
