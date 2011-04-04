@@ -12,7 +12,7 @@ set ruler					" Always show ruler
 set showcmd				" Always...
 set background=dark
 let g:molokai_original=0
-colorscheme molokai
+colorscheme solarized
 
 " Search behaviour
 set incsearch
