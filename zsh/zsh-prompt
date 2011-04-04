@@ -15,7 +15,7 @@ export __CURRENT_GIT_BRANCH=
 
 parse_git_branch() {
 	git branch --no-color 2> /dev/null \
-	| grep '^\*' | sed -e 's/^\* \(.*\)/(%F{red}\1%f)/'
+	| grep '^\*' | sed -e 's/^\* \(.*\)/(%F{red}git:\1%f)/'
 }
 
 preexec_functions+='zsh_preexec_update_git_vars'
