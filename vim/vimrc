@@ -50,7 +50,7 @@ set listchars=tab:>-,trail:.,extends:>
 " Tab behaviour
 set tabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 " Swapfiles in ~/tmp
 set backupdir=~/tmp,/tmp
