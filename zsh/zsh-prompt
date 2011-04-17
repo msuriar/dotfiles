@@ -36,7 +36,33 @@ get_git_prompt_info() {
 	echo $__CURRENT_GIT_BRANCH
 }
 
-PROMPT='%{[%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f]%}$(get_git_prompt_info)
+# HG stuff.
+export __CURRENT_HG_BRANCH=
+
+parse_hg_branch() {
+	hg branch 2> /dev/null \
+	| sed -e 's/^\(.*\)$/(%F{red}hg:\1%f)/'
+}
+
+preexec_functions+='zsh_preexec_update_hg_vars'
+zsh_preexec_update_hg_vars() {
+	case "$(history $HISTCMD)" in
+		*hg*)
+		export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
+		;;
+	esac
+}
+
+chpwd_functions+='zsh_chpwd_update_hg_vars'
+zsh_chpwd_update_hg_vars() {
+	export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
+}
+
+get_hg_prompt_info() {
+	echo $__CURRENT_HG_BRANCH
+}
+
+PROMPT='%{[%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f]%}$(get_git_prompt_info)$(get_hg_prompt_info)
 %# '
 
 export PROMPT RPROMPT
