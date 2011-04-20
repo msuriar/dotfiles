@@ -10,3 +10,5 @@
 	stat = status
 [merge]
 	tool = vimdiff
+[push]
+  default = tracking
