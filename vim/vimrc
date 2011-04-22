@@ -35,7 +35,7 @@ set wildmode=longest,full
 
 " Enable syntax highlighting options
 filetype on
-syntax on
+syntax enable
 
 " Clipboard behaviour
 set clipboard=exclude:.* " don't try and query X server
