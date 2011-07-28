@@ -1,11 +1,11 @@
 function tmuxTelnet()
 {
-	tmux new-window -n "$1" "\"telnet $@\""
+	tmux new-window -n "$1" "telnet $@"
 }
 
 function tmuxSsh()
 {
-	tmux new-window -n "$1" "\"ssh $@\""
+	tmux new-window -n "$1" "ssh $@"
 }
 
 function v()
@@ -40,4 +40,4 @@ function tmuxLog()
 
 alias s=tmuxSsh
 alias t=tmuxTelnet
-
+alias tl=tmuxLog
