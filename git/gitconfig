@@ -7,7 +7,15 @@
 	branch = auto
 	interactive = auto
 [alias]
+  a = add
+  cm = commit -m
+  co = checkout
+  d = diff
+  di = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+  rh = reset --hard
 	stat = status
+	st = status
 [merge]
 	tool = vimdiff
 [push]
