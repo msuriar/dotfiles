@@ -34,25 +34,16 @@ get_hg_prompt_info() {
 	echo $__CURRENT_HG_BRANCH
 }
 
-# Preexec/chpwd functions for VCS info.
-
-preexec_functions+='zsh_preexec_update_vcs_vars'
-zsh_preexec_update_vcs_vars() {
-	case "$(history $HISTCMD)" in
-		*git*)
-		export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
-		;;
-		*hg*)
-		export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
-		;;
-	esac
+# Update VCS variables
+zsh_update_vcs_vars() {
+  export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+  export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
 }
 
-chpwd_functions+='zsh_chpwd_update_vcs_vars'
-zsh_chpwd_update_vcs_vars() {
-	export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
-	export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
-}
+# Preexec/chpwd/precmd functions for VCS info.
+preexec_functions+='zsh_update_vcs_vars'
+chpwd_functions+='zsh_update_vcs_vars'
+precmd_functions+='zsh_update_vcs_vars'
 
 PROMPT='%{[%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f]%}$(get_git_prompt_info)$(get_hg_prompt_info)
 %# '
