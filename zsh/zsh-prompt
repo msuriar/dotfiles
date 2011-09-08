@@ -15,7 +15,7 @@ export __CURRENT_GIT_BRANCH=
 
 parse_git_branch() {
 	git branch --no-color 2> /dev/null \
-	| grep '^\*' | sed -e 's/^\* \(.*\)/(%F{red}git:\1%f)/'
+	| grep '^\*' | sed -e 's/^\* \(.*\)/(%{%F{red}%}git:\1%{%f%})/'
 }
 
 get_git_prompt_info() {
@@ -27,7 +27,7 @@ export __CURRENT_HG_BRANCH=
 
 parse_hg_branch() {
 	hg branch 2> /dev/null \
-	| sed -e 's/^\(.*\)$/(%F{red}hg:\1%f)/'
+	| sed -e 's/^\(.*\)$/(%{%F{red}%}hg:\1%{%f%})/'
 }
 
 get_hg_prompt_info() {
@@ -45,7 +45,7 @@ preexec_functions+='zsh_update_vcs_vars'
 chpwd_functions+='zsh_update_vcs_vars'
 precmd_functions+='zsh_update_vcs_vars'
 
-PROMPT='%{[%F{yellow}%n%f@%F{$HOSTNAMECOLOUR}%m%f:%F{blue}%~%f]%}%(?..[%F{red}%?%f])$(get_git_prompt_info)$(get_hg_prompt_info)
+PROMPT='[%{%F{yellow}%}%n%{%f%}@%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}:%{%F{blue}%}%~%{%f%}]%(?..[%{%F{red}%}%?%{%f%}])$(get_git_prompt_info)$(get_hg_prompt_info)
 %# '
 
 export PROMPT RPROMPT
