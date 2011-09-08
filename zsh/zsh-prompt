@@ -45,7 +45,12 @@ preexec_functions+='zsh_update_vcs_vars'
 chpwd_functions+='zsh_update_vcs_vars'
 precmd_functions+='zsh_update_vcs_vars'
 
-PROMPT='[%{%F{yellow}%}%n%{%f%}@%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}:%{%F{blue}%}%~%{%f%}]%(?..[%{%F{red}%}%?%{%f%}])$(get_git_prompt_info)$(get_hg_prompt_info)
+PROMPT='[%{%F{yellow}%}%n%{%f%}@\
+%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}:\
+%{%F{blue}%}%~%{%f%}]\
+%(?..[%{%F{red}%}%?%{%f%}])\
+$(get_git_prompt_info)\
+$(get_hg_prompt_info)
 %# '
 
 export PROMPT RPROMPT
