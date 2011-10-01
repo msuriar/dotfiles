@@ -5,6 +5,7 @@ alias l='ls -CF' # columnise and put sigils on ls output
 alias ll='ls -l'
 alias la='ls -A'
 alias l.='ls -lAd .*'
+alias grep=egrep
 
 # Almost certainly will be reset by screen/tmux equivalents; here as a fallback.
 alias vi='vim'
