@@ -1,14 +1,15 @@
 # vi:filetype=gitconfig
 [user]
-	name = Murali Suriar
-	email = code@suriar.com
+  name = Murali Suriar
+  email = code@suriar.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [merge]
-	tool = vimdiff
+  conflictstyle = diff3
+  tool = vimdiff
 [push]
   default = tracking
 [diff]
