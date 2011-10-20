@@ -21,7 +21,7 @@ function vr()
 
 function m()
 {
-	tmux new-window -n "man.$1" "man $1"
+	tmux split-window "man $1"
 }
 
 function tmuxLog()
