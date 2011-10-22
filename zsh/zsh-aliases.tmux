@@ -21,7 +21,11 @@ function vr()
 
 function m()
 {
-	tmux split-window "man $1"
+  if [[ $COLUMNS -gt $LINES ]] ; then
+    tmux split-window -h "man $1"
+  else
+    tmux split-window "man $1"
+  fi
 }
 
 function tmuxLog()
