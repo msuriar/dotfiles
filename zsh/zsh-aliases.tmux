@@ -1,24 +1,3 @@
-function tmuxTelnet()
-{
-	tmux new-window -n "$1" "telnet $@"
-}
-
-function tmuxSsh()
-{
-	tmux new-window -n "$1" "ssh $@"
-}
-
-function v()
-{
-	tmux new-window -n "$(basename $1)" "vi $1"
-}
-
-unalias vr # Aliased to 'vi -R' earlier on
-function vr()
-{
-	tmux new-window -n "$(basename $1)" "vi -R $1"
-}
-
 function m()
 {
   if [[ $COLUMNS -gt $LINES ]] ; then
@@ -40,6 +19,27 @@ function tmuxLog()
 		echo "Falling back to ~"
 		tmux bind-key H pipe-pane -o "cat >> $HOME/#W.log" \\\; display-message "Toggled logging to $HOME/#W.log"
 	fi
+}
+
+function tmuxSsh()
+{
+	tmux new-window -n "$1" "ssh $@"
+}
+
+function tmuxTelnet()
+{
+	tmux new-window -n "$1" "telnet $@"
+}
+
+function v()
+{
+	tmux new-window -n "$(basename $1)" "vi $1"
+}
+
+unalias vr # Aliased to 'vi -R' earlier on
+function vr()
+{
+	tmux new-window -n "$(basename $1)" "vi -R $1"
 }
 
 alias s=tmuxSsh
