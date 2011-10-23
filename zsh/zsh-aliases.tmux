@@ -1,3 +1,8 @@
+function tmuxLoadBufferFromCwd()
+{
+  tmux load-buffer "${PWD}/$1"
+}
+
 function tmuxLog()
 {
 	if [[ (-n $1 && -d $1 && -w $1) ]]; then
@@ -44,6 +49,7 @@ function tmuxViRW()
 alias m=tmuxMan
 alias s=tmuxSsh
 alias t=tmuxTelnet
+alias tlb=tmuxLoadBufferFromCwd
 alias tl=tmuxLog
 alias v=tmuxViRW
 unalias vr # Aliased to 'vi -R' earlier on
