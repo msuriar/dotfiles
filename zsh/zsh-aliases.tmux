@@ -1,12 +1,3 @@
-function m()
-{
-  if [[ $COLUMNS -gt $LINES ]] ; then
-    tmux split-window -h "man $1"
-  else
-    tmux split-window "man $1"
-  fi
-}
-
 function tmuxLog()
 {
 	if [[ (-n $1 && -d $1 && -w $1) ]]; then
@@ -19,6 +10,15 @@ function tmuxLog()
 		echo "Falling back to ~"
 		tmux bind-key H pipe-pane -o "cat >> $HOME/#W.log" \\\; display-message "Toggled logging to $HOME/#W.log"
 	fi
+}
+
+function tmuxMan()
+{
+  if [[ $COLUMNS -gt $LINES ]] ; then
+    tmux split-window -h "man $1"
+  else
+    tmux split-window "man $1"
+  fi
 }
 
 function tmuxSsh()
@@ -42,6 +42,7 @@ function vr()
 	tmux new-window -n "$(basename $1)" "vi -R $1"
 }
 
+alias m=tmuxMan
 alias s=tmuxSsh
 alias t=tmuxTelnet
 alias tl=tmuxLog
