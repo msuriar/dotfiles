@@ -50,7 +50,7 @@ alias m=tmuxMan
 alias s=tmuxSsh
 alias t=tmuxTelnet
 alias tlb=tmuxLoadBufferFromCwd
-alias tl=tmuxLog
+alias tlg=tmuxLog
 alias v=tmuxViRW
 unalias vr # Aliased to 'vi -R' earlier on
 alias vr=tmuxViRO
