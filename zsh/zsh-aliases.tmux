@@ -31,18 +31,20 @@ function tmuxTelnet()
 	tmux new-window -n "$1" "telnet $@"
 }
 
-function v()
-{
-	tmux new-window -n "$(basename $1)" "vi $1"
-}
-
-unalias vr # Aliased to 'vi -R' earlier on
-function vr()
+function tmuxViRO()
 {
 	tmux new-window -n "$(basename $1)" "vi -R $1"
+}
+
+function tmuxViRW()
+{
+	tmux new-window -n "$(basename $1)" "vi $1"
 }
 
 alias m=tmuxMan
 alias s=tmuxSsh
 alias t=tmuxTelnet
 alias tl=tmuxLog
+alias v=tmuxViRW
+unalias vr # Aliased to 'vi -R' earlier on
+alias vr=tmuxViRO
