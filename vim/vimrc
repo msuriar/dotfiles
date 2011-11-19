@@ -20,9 +20,15 @@ set nocompatible	" use vim defaults
 set number				" Always show line numbers
 set ruler					" Always show ruler
 set showcmd				" Always...
+set title
 set background=dark
 let g:molokai_original=0
 colorscheme solarized
+
+
+
+" Buffer behaviour
+set hidden
 
 " Search behaviour
 set incsearch
@@ -62,7 +68,13 @@ set expandtab
 set backupdir=~/tmp,/tmp
 set directory=~/tmp,/tmp
 
-nmap <C-N><C-N> :set nu! nu? <CR>
-nmap <C-H><C-H> :set hls! hls? <CR>
-nmap <C-A><C-A> :set autoindent! autoindent? <CR>
-nmap <C-L><C-L> :set list! list? <CR>
+" Mappings
+let mapleader=","
+
+nnoremap ' `
+nnoremap ` '
+
+nmap <silent><Leader>b :LustyJuggler <CR>
+nmap <silent><Leader>H :set hlsearch! hlsearch? <CR>
+nmap <silent><Leader>n :set number! number? <CR>
+nmap <silent><Leader>L :set list! list? <CR>
