@@ -19,7 +19,8 @@ set exrc
 set nocompatible	" use vim defaults
 set number				" Always show line numbers
 set ruler					" Always show ruler
-set showcmd				" Always...
+set showcmd				" Always show commands
+set laststatus=2  " Always use a statusbar
 set title
 set background=dark
 let g:molokai_original=0
@@ -29,6 +30,8 @@ colorscheme solarized
 
 " Buffer behaviour
 set hidden
+" Change directory to the one containing the file open in the current buffer.
+autocmd BufEnter * lcd %:p:h
 
 " Search behaviour
 set incsearch
@@ -39,13 +42,18 @@ set smartcase
 " Scrolling behaviour
 set scrolloff=50
 set backspace=2
+" Scroll three lines at a time
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " History, marks, etc
 set viminfo='100,f1
-set history=500
+set history=1000
 
 " Wildcard completion - complete longest common substring
-set wildmode=longest,full
+set wildmenu
+set wildmode=longest:full
+set wildignore+=*.pyc
 
 " Clipboard behaviour
 set clipboard=exclude:.* " don't try and query X server
@@ -64,6 +72,19 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Line length
+set textwidth=79
+
+" Show matching brackets
+set showmatch
+set matchtime=3
+
+" Spell checking
+" zg = add word to dict
+" zw = mark word as not spelled correctly (remove)
+set spell spelllang=en_gb
+set spellfile=~/.vim/dict.add
+
 " Swapfiles in ~/tmp
 set backupdir=~/tmp,/tmp
 set directory=~/tmp,/tmp
@@ -71,10 +92,58 @@ set directory=~/tmp,/tmp
 " Mappings
 let mapleader=","
 
+" Double semicolon for escape
+inoremap ;; <ESC>
+cnoremap ;; <C-c>
+
+" Unmap escape and ^C to get out of the habit of using them
+map <C-C> <Nop>
+imap <C-C> <Nop>
+
+" Swap backtick and quote, since backtick is more useful when it comes to
+" marks, but quote is more reachable
 nnoremap ' `
 nnoremap ` '
 
+" Leader stuff for toggling interesting things.
+
+nmap <silent><Leader>H :setlocal hlsearch! hlsearch? <CR>
+nmap <silent><Leader>L :setlocal list! list? <CR>
+nmap <silent><Leader>n :setlocal number! number? <CR>
+nmap <silent><Leader>P :set paste! paste? <CR>
+nmap <silent><Leader>s :setlocal spell! spelllang=en_gb paste? <CR>
+
+" Modify .vimrc and reload it.
+map <leader>v :sp ~/.vimrc<CR><C-W>_
+map <silent><leader>V :source ~/.vimrc <CR>:filetype detect <CR>:exe ":echo ':echo vimrc reloaded'"<CR>
+
+" Buffer and split navigation
 nmap <silent><Leader>b :LustyJuggler <CR>
-nmap <silent><Leader>H :set hlsearch! hlsearch? <CR>
-nmap <silent><Leader>n :set number! number? <CR>
-nmap <silent><Leader>L :set list! list? <CR>
+
+" Move between splits easily
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" use - and + to resize horizontal splits
+map - <C-W>-
+map + <C-W>+
+
+" and for vsplits with alt-< or alt->
+map <M-,> <C-W>>
+map <M-.> <C-W><
+
+" Registers
+nmap <leader>r :registers <CR>
+" map the various registers to a leader shortcut for pasting from them
+nmap <leader>0 "0p
+nmap <leader>1 "1p
+nmap <leader>2 "2p
+nmap <leader>3 "3p
+nmap <leader>4 "4p
+nmap <leader>5 "5p
+nmap <leader>6 "6p
+nmap <leader>7 "7p
+nmap <leader>8 "8p
+nmap <leader>9 "9p
