@@ -6,6 +6,7 @@ endif
 set modelines=1
 
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 " Enable syntax highlighting options. Need to disable/reenable for pathogen.
 filetype off
 filetype plugin indent on
