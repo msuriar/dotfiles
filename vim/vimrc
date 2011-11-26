@@ -23,10 +23,7 @@ set showcmd				" Always show commands
 set laststatus=2  " Always use a statusbar
 set title
 set background=dark
-let g:molokai_original=0
 colorscheme solarized
-
-
 
 " Buffer behaviour
 set hidden
@@ -41,10 +38,12 @@ set smartcase
 
 " Scrolling behaviour
 set scrolloff=50
-set backspace=2
 " Scroll three lines at a time
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
+
+" Unmap backspace in insert mode. Use vi motions.
+iunmap <BS>
 
 " History, marks, etc
 set viminfo='100,f1
@@ -99,6 +98,9 @@ cnoremap ;; <C-c>
 " Unmap escape and ^C to get out of the habit of using them
 map <C-C> <Nop>
 imap <C-C> <Nop>
+
+" Quickly insert newlines
+nmap <CR> o<ESC>
 
 " Swap backtick and quote, since backtick is more useful when it comes to
 " marks, but quote is more reachable
