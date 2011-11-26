@@ -107,13 +107,13 @@ nmap <CR> o<ESC>
 nnoremap ' `
 nnoremap ` '
 
-" Leader stuff for toggling interesting things.
+" leader stuff for toggling interesting things.
 
-nmap <silent><Leader>H :setlocal hlsearch! hlsearch? <CR>
-nmap <silent><Leader>L :setlocal list! list? <CR>
-nmap <silent><Leader>n :setlocal number! number? <CR>
-nmap <silent><Leader>P :set paste! paste? <CR>
-nmap <silent><Leader>s :setlocal spell! spelllang=en_gb spell? <CR>
+nmap <silent><leader>H :setlocal hlsearch! hlsearch? <CR>
+nmap <silent><leader>L :setlocal list! list? <CR>
+nmap <silent><leader>n :setlocal number! number? <CR>
+nmap <silent><leader>P :set paste! paste? <CR>
+nmap <silent><leader>s :setlocal spell! spelllang=en_gb spell? <CR>
 
 " Modify .vimrc and reload it.
 map <leader>v :sp ~/.vimrc<CR><C-W>_
@@ -121,7 +121,7 @@ map <silent><leader>V :source ~/.vimrc <CR>:filetype detect <CR>:exe ":echo ':ec
 
 " Buffer and split navigation
 let g:LustyJugglerSuppressRubyWarning = 1
-nmap <silent><Leader>b :LustyJuggler <CR>
+nmap <silent><leader>b :LustyJuggler <CR>
 
 " Move between splits easily
 map <C-h> <C-w>h
