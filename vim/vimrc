@@ -113,7 +113,7 @@ nmap <silent><Leader>H :setlocal hlsearch! hlsearch? <CR>
 nmap <silent><Leader>L :setlocal list! list? <CR>
 nmap <silent><Leader>n :setlocal number! number? <CR>
 nmap <silent><Leader>P :set paste! paste? <CR>
-nmap <silent><Leader>s :setlocal spell! spelllang=en_gb paste? <CR>
+nmap <silent><Leader>s :setlocal spell! spelllang=en_gb spell? <CR>
 
 " Modify .vimrc and reload it.
 map <leader>v :sp ~/.vimrc<CR><C-W>_
