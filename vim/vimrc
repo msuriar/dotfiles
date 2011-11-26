@@ -43,7 +43,7 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Unmap backspace in insert mode. Use vi motions.
-iunmap <BS>
+imap <BS> <Nop>
 
 " History, marks, etc
 set viminfo='100,f1
