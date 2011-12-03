@@ -2,6 +2,8 @@
 [user]
   name = Murali Suriar
   email = code@suriar.com
+[core]
+  excludesfile = ~/.git/ignore
 [color]
   diff = auto
   status = auto
