@@ -20,7 +20,7 @@
   prompt = false
 [alias]
   a = add
-  br = branch
+  br = branch -v
   cm = commit -m
   co = checkout
   d = difftool
