@@ -1,1 +1,2 @@
+#!/bin/zsh
 tmux new-window -n "$1" "ssh $@"

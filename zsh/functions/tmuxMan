@@ -1,3 +1,4 @@
+#!/bin/zsh
 if [[ $COLUMNS -gt $LINES ]] ; then
   tmux split-window -h "man $1"
 else

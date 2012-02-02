@@ -1,1 +1,2 @@
+#!/bin/zsh
 tmux new-window -n "$(basename $1)" "vi -R $1"
