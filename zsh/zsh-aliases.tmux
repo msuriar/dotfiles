@@ -26,15 +26,21 @@ function tmuxMan()
   fi
 }
 
+compdef "$_comps[man]" tmuxMan
+
 function tmuxSsh()
 {
 	tmux new-window -n "$1" "ssh $@"
 }
 
+compdef "$_comps[ssh]" tmuxSsh
+
 function tmuxTelnet()
 {
 	tmux new-window -n "$1" "telnet $@"
 }
+
+compdef "$_comps[telnet]" tmuxTelnet
 
 function tmuxViRO()
 {
@@ -45,6 +51,10 @@ function tmuxViRW()
 {
 	tmux new-window -n "$(basename $1)" "vi $1"
 }
+
+compdef "$_comps[vim]" tmuxViRO
+compdef "$_comps[vim]" tmuxViRW
+
 
 alias m=tmuxMan
 alias s=tmuxSsh

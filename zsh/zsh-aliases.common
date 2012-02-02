@@ -20,8 +20,3 @@ if [[ -n $TMUX ]] ; then
 elif which screen 1> /dev/null; then
 	[[ -r ~/.zsh/zsh-aliases.screen ]] && . ~/.zsh/zsh-aliases.screen
 fi
-
-# Enable zsh autocompletion for m,s,t functions/aliases
-compdef "$_comps[man]" m
-compdef "$_comps[ssh]" s
-compdef "$_comps[telnet]" t
