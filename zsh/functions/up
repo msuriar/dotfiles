@@ -1,0 +1,22 @@
+#!/bin/zsh
+if [[ $# = 0 ]]
+then
+        levels=1
+elif [[ $# > 1 ]]
+then
+        echo "Too many arguments"
+        return 100
+elif [[ $1 = <1-> ]]
+then
+        levels=$1
+else
+        echo "Invalid argument: must be a positive number."
+        return 200
+fi
+dots='./'
+while [[ $levels > 0 ]]
+do
+        dots="${dots}../"
+        (( levels-- ))
+done
+cd $dots
