@@ -17,6 +17,9 @@ autoload -U compinit promptinit edit-command-line
 compinit
 promptinit
 
+[[ -d ~/.zsh/functions ]] && autoload ~/.zsh/functions/*(:t)
+[[ -d ~/.zsh/functions.local ]] && autoload ~/.zsh/functions.local/*(:t)
+
 # Editing command lines in vim
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line

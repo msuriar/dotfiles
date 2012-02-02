@@ -1,0 +1,1 @@
+tmux load-buffer "${PWD}/$1"

@@ -1,0 +1,5 @@
+if [[ $COLUMNS -gt $LINES ]] ; then
+  tmux split-window -h "man $1"
+else
+  tmux split-window "man $1"
+fi

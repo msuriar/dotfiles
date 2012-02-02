@@ -5,3 +5,6 @@ umask 022
 [[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
 
 [[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
+
+[[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
+[[ -d ~/.zsh/functions.local ]] && fpath=(~/.zsh/functions.local $fpath)
