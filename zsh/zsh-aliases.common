@@ -12,6 +12,13 @@ alias vr='vi -R' # Open something read only
 alias vi='vim'
 alias vr='vim -R'
 
+# Global aliases for grep, tail, xargs, etc
+alias -g G='| grep'
+alias -g H='| head'
+alias -g L='| less'
+alias -g S='| sort'
+alias -g T='| tail'
+
 # Multiplexer logic.
 # Check if $TMUX is set; failing that, check for the existence of screen
 
