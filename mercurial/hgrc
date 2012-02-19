@@ -10,6 +10,7 @@ git = True
 color =
 graphlog =
 pager =
+progress =
 
 [pager]
 attend = annotate, cat, diff, export, glog, help, log, qdiff
