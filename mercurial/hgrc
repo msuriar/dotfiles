@@ -8,4 +8,5 @@ color =
 pager =
 
 [pager]
+attend = annotate, cat, diff, export, glog, help, log, qdiff
 pager = LESS='FSRX' less
