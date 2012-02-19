@@ -9,8 +9,10 @@ setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
 EDITOR=vim
 
 MANPAGER="zsh -c \"col -b | /usr/bin/vim -R -c 'set nonumber' -c 'set syntax=man' -\""
+LESS=FX
+PAGER=less
 
-export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER
+export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER LESS PAGER
 
 # the default umask is set in /etc/login.defs
 umask 022
