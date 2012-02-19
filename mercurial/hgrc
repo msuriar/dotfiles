@@ -3,8 +3,12 @@ username = Murali Suriar <code@suriar.com>
 editor = vim
 verbose = True
 
+[diff]
+git = True
+
 [extensions]
 color =
+graphlog =
 pager =
 
 [pager]
