@@ -3,8 +3,14 @@ username = Murali Suriar <code@suriar.com>
 editor = vim
 verbose = True
 
+# UI at the top, everything else alphabetical by section.
+
 [diff]
 git = True
+
+[extdiff]
+cmd.vd = vim
+opts.vd = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
 
 [extensions]
 color =
@@ -15,7 +21,3 @@ progress =
 [pager]
 attend = annotate, cat, diff, export, glog, help, log, qdiff
 pager = LESS='FSRX' less
-
-[extdiff]
-cmd.vd = vim
-opts.vd = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
