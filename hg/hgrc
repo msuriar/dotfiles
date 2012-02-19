@@ -1,0 +1,6 @@
+[ui]
+username = Murali Suriar <code@suriar.com>
+editor = vim
+verbose = True
+[extensions]
+color =
