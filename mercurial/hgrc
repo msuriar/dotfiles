@@ -8,6 +8,9 @@ verbose = True
 [alias]
 slog = log --template '{rev}:{node|short} {desc|firstline}\n'
 
+[defaults]
+glog = --template '{rev}:{node|short} {tags} - {desc|firstline|fill68|tabindent|tabindent}\n'
+
 [diff]
 git = True
 
