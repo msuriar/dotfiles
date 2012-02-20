@@ -6,7 +6,9 @@ verbose = True
 # UI at the top, everything else alphabetical by section.
 
 [alias]
+cm = commit --message
 slog = log --template '{rev}:{node|short} {desc|firstline}\n'
+up = update --check
 
 [defaults]
 glog = --template '{rev}:{node|short} {tags} - {desc|firstline|fill68|tabindent|tabindent}\n'
