@@ -124,6 +124,9 @@ map <silent><leader>V :source ~/.vimrc <CR>:filetype detect <CR>:exe ":echo ':ec
 let g:LustyJugglerSuppressRubyWarning = 1
 nmap <silent><leader>b :LustyJuggler <CR>
 
+map <leader>\| :vsplit<CR>
+map <leader>_ :split<CR>
+
 " Move between splits easily
 map <C-h> <C-w>h
 map <C-j> <C-w>j
