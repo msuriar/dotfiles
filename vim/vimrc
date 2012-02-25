@@ -127,6 +127,8 @@ nmap <silent><leader>b :LustyJuggler <CR>
 map <leader>\| :vsplit<CR>
 map <leader>_ :split<CR>
 
+map <leader>q :close<CR>
+
 " Move between splits easily
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -140,6 +142,14 @@ map + <C-W>+
 " and for vsplits with alt-< or alt->
 map <M-,> <C-W>>
 map <M-.> <C-W><
+
+" By setting these, the active window will expand to be sufficiently useful.
+set winwidth=84
+
+" Need to set winheight, set small winminheight, then increase winheight.
+set winheight=5
+set winminheight=5
+set winheight=999
 
 " Registers
 nmap <leader>r :registers <CR>
