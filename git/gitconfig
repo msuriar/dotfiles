@@ -4,6 +4,7 @@
   email = code@suriar.com
 [core]
   excludesfile = ~/.git/ignore
+  pager = less -FSRX
 [color]
   diff = auto
   status = auto
