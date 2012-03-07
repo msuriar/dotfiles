@@ -1,2 +1,2 @@
 #!/bin/zsh
-tmux new-window -n "$1" "telnet $@"
+tmux new-window -n "$1" "telnet $argv[*]"

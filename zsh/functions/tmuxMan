@@ -1,6 +1,6 @@
 #!/bin/zsh
 if [[ $COLUMNS -gt $LINES ]] ; then
-  tmux split-window -h "man $1"
+  tmux split-window -h "man $argv[*]"
 else
-  tmux split-window "man $1"
+  tmux split-window "man $argv[*]"
 fi
