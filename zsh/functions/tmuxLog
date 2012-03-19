@@ -1,11 +1,11 @@
 #!/bin/zsh
 if [[ (-n $1 && -d $1 && -w $1) ]]; then
   echo "Have argument $1, which is a writeable directory."
-  tmux bind-key H pipe-pane -o "cat >> $1/#W.log" \\\; display-message "Toggled logging to $1/#W.log"
+  tmux bind-key 'H' pipe-pane -o "cat >> $1/#W.log" \\\; display-message "Toggled logging to $1/#W.log"
 elif [[ -z $1 && -w $(pwd) ]]; then
   echo "No argmuent, and current working directory is writeable."
-  tmux bind-key H pipe-pane -o "cat >> $(pwd)/#W.log" \\\; display-message "Toggled logging to $(pwd)/#W.log"
+  tmux bind-key 'H' pipe-pane -o "cat >> $(pwd)/#W.log" \\\; display-message "Toggled logging to $(pwd)/#W.log"
 else
   echo "Falling back to ~"
-  tmux bind-key H pipe-pane -o "cat >> $HOME/#W.log" \\\; display-message "Toggled logging to $HOME/#W.log"
+  tmux bind-key 'H' pipe-pane -o "cat >> $HOME/#W.log" \\\; display-message "Toggled logging to $HOME/#W.log"
 fi
