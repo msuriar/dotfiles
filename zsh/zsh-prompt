@@ -46,7 +46,7 @@ chpwd_functions+='zsh_update_vcs_vars'
 precmd_functions+='zsh_update_vcs_vars'
 
 PROMPT='[%{%F{yellow}%}%n%{%f%}@\
-%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}:\
+%{%F{$HOSTNAMECOLOUR}%}%2m%{%f%}:\
 %{%F{blue}%}%~%{%f%}]\
 %(?..[%{%F{red}%}%?%{%f%}])\
 $(get_git_prompt_info)\
