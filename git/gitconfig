@@ -29,5 +29,6 @@
   l = !. ~/.git/githelpers && gitPrettyLog
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   rh = reset --hard
-  stat = status
-  st = status
+  s = status --short
+  st = status --short
+  stat = status --short
