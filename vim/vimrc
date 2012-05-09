@@ -22,14 +22,29 @@ set number				" Always show line numbers
 set ruler					" Always show ruler
 set showcmd				" Always show commands
 set laststatus=2  " Always use a statusbar
+set cursorline    " Highlight line cursor is on
 set title
 set background=dark
 colorscheme solarized
 
 " Buffer behaviour
 set hidden
-" Change directory to the one containing the file open in the current buffer.
-autocmd BufEnter * lcd %:p:h
+
+" Custom autocommands
+
+augroup vimrcEx
+  " Clear all commands in group
+  autocmd!
+
+  " Change directory to the one containing the file open in the current buffer.
+  autocmd BufEnter * lcd %:p:h
+
+  " Keep track of positions in files.
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
 " Search behaviour
 set incsearch
