@@ -1,0 +1,3 @@
+[submodule "vim/bundle/DirDiff.vim"]
+	path = vim/bundle/DirDiff.vim
+	url = https://github.com/duellj/DirDiff.vim.git
