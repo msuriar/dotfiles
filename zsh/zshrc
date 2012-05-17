@@ -10,6 +10,11 @@ promptinit
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Output time for stuff that runs longer that 5 seconds. In zshrc since it only
+# makes sense for interactive shells.
+REPORTTIME=5
+export REPORTTIME
+
 # Common aliases
 [[ -r ~/.zsh/zsh-aliases.common ]] && . ~/.zsh/zsh-aliases.common
 
