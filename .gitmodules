@@ -1,9 +1,6 @@
 [submodule "vim/bundle/DirDiff.vim"]
 	path = vim/bundle/DirDiff.vim
 	url = https://github.com/duellj/DirDiff.vim.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
