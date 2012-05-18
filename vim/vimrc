@@ -151,6 +151,9 @@ nmap <silent><leader>s :setlocal spell! spelllang=en_gb spell? <CR>
 map <leader>v :sp ~/.vimrc<CR><C-W>_
 map <silent><leader>V :source ~/.vimrc \| :filetype detect \| :redraw \| :echo 'vimrc reloaded'<CR>
 
+" Open Ctrl-P
+map <leader>p :<C-U>CtrlP<CR>
+
 " Buffer and split navigation
 let g:LustyJugglerSuppressRubyWarning = 1
 nmap <silent><leader>b :LustyJuggler <CR>
