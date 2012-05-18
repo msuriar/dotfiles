@@ -3,7 +3,7 @@
   name = Murali Suriar
   email = code@suriar.com
 [core]
-  excludesfile = ~/.git/ignore
+  excludesfile = ~/.gitconf/ignore
   pager = less -FSRX
 [color]
   diff = auto
@@ -26,7 +26,7 @@
   co = checkout
   d = difftool
   di = difftool
-  l = !. ~/.git/githelpers && gitPrettyLog
+  l = !. ~/.gitconf/githelpers && gitPrettyLog
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   rh = reset --hard
   s = status --short
