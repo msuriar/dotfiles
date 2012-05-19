@@ -30,14 +30,14 @@ colorscheme solarized
 " Buffer behaviour
 set hidden
 
+" Automatically change directory when moving buffers
+set autochdir
+
 " Custom autocommands
 
 augroup vimrcEx
   " Clear all commands in group
   autocmd!
-
-  " Change directory to the one containing the file open in the current buffer.
-  autocmd BufEnter * lcd %:p:h
 
   " Keep track of positions in files.
   autocmd BufReadPost *
