@@ -131,8 +131,8 @@ cnoremap ;; <C-c>
 map <C-C> <Nop>
 imap <C-C> <Nop>
 
-" Quickly insert newlines
-nmap <CR> o<ESC>
+" Return toggles hlsearch
+nnoremap <CR> :setlocal hlsearch! hlsearch? <CR>
 
 " Swap backtick and quote, since backtick is more useful when it comes to
 " marks, but quote is more reachable
