@@ -1,9 +1,5 @@
 # Aliases common across all OSes
 alias grep=egrep
-alias l.='ls -lAd .*'
-alias l='ls -CF' # columnise and put sigils on ls output
-alias la='ls -A'
-alias ll='ls -l'
 alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
 alias vr='vi -R' # Open something read only
