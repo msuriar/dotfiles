@@ -3,4 +3,5 @@
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     alias l='ls -AFG'
+    alias ll='l -l'
 fi
