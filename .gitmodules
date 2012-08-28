@@ -19,3 +19,6 @@
 [submodule "tmux-colors-solarized"]
 	path = tmux-colors-solarized
 	url = https://github.com/oconnor663/tmux-colors-solarized.git
+[submodule "vim/bundle/ir_black"]
+	path = vim/bundle/ir_black
+	url = https://github.com/twerth/ir_black.git
