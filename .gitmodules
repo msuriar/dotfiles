@@ -22,3 +22,6 @@
 [submodule "vim/bundle/ir_black"]
 	path = vim/bundle/ir_black
 	url = https://github.com/twerth/ir_black.git
+[submodule "vim/bundle/vim-blackboard"]
+	path = vim/bundle/vim-blackboard
+	url = https://github.com/nelstrom/vim-blackboard
