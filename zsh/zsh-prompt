@@ -27,12 +27,22 @@ get_git_prompt_info() {
   fi
 }
 
-calculate_time_since_commit() {
+get_git_time_since_commit() {
   LAST_COMMIT_TIME=$(git log -1 --pretty=format:%at)
   (( TIME_SINCE_COMMIT = $(date +%s) - ${LAST_COMMIT_TIME} ))
   if [[ ${TIME_SINCE_COMMIT} -le 1800 ]]; then
     MINUTES="$((${TIME_SINCE_COMMIT}/60))m"
     export __CURRENT_GIT_COMMIT_TIME="%{%F{green}%}${MINUTES}%{%f%}"
+  fi
+}
+
+zsh_update_git_vars() {
+  export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
+    export __CURRENT_GIT_STATUS="$(git status --short)"
+  fi
+  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
+    get_git_time_since_commit
   fi
 }
 
@@ -50,14 +60,8 @@ get_hg_prompt_info() {
 
 # Update VCS variables
 zsh_update_vcs_vars() {
-  export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+  zsh_update_git_vars
   export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
-  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
-    export __CURRENT_GIT_STATUS="$(git status --short)"
-  fi
-  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
-    calculate_time_since_commit
-  fi
 }
 
 # Preexec/chpwd/precmd functions for VCS info.
