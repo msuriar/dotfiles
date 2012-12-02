@@ -21,7 +21,11 @@ parse_git_branch() {
 
 get_git_prompt_info() {
   if [[ -n ${__CURRENT_GIT_BRANCH} ]] ; then
-    echo "(${__CURRENT_GIT_BRANCH}|$__CURRENT_GIT_COMMIT_TIME)"
+    if [[ -n ${__CURRENT_GIT_COMMIT_TIME} ]]; then
+      echo "(${__CURRENT_GIT_BRANCH}|$__CURRENT_GIT_COMMIT_TIME)"
+    else
+      echo "($__CURRENT_GIT_BRANCH)"
+    fi
   else
     echo ""
   fi
@@ -30,19 +34,33 @@ get_git_prompt_info() {
 get_git_time_since_commit() {
   LAST_COMMIT_TIME=$(git log -1 --pretty=format:%at)
   (( TIME_SINCE_COMMIT = $(date +%s) - ${LAST_COMMIT_TIME} ))
-  if [[ ${TIME_SINCE_COMMIT} -le 1800 ]]; then
-    MINUTES="$((${TIME_SINCE_COMMIT}/60))m"
-    export __CURRENT_GIT_COMMIT_TIME="%{%F{green}%}${MINUTES}%{%f%}"
+  if [[ ${TIME_SINCE_COMMIT} -le 600 ]]; then
+    TIMECOLOR="green"
+    TIME="$((${TIME_SINCE_COMMIT}/60))m"
+  elif [[ ${TIME_SINCE_COMMIT} -le 3600 ]]; then 
+    TIMECOLOR="yellow"
+    TIME="$((${TIME_SINCE_COMMIT}/60))m"
+  elif [[ ${TIME_SINCE_COMMIT} -le 84600 ]]; then
+    TIMECOLOR="red"
+    TIME="$((${TIME_SINCE_COMMIT}/3600))h"
+  else
+    TIMECOLOR="red"
+    TIME="$((${TIME_SINCE_COMMIT}/84600))D"
   fi
+  export __CURRENT_GIT_COMMIT_TIME="%{%F{${TIMECOLOR}}%}${TIME}%{%f%}"
 }
 
 zsh_update_git_vars() {
   export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
   if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
     export __CURRENT_GIT_STATUS="$(git status --short)"
-  fi
-  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
-    get_git_time_since_commit
+    if [[ -n ${__CURRENT_GIT_STATUS} ]]; then
+      get_git_time_since_commit
+    else
+      unset __CURRENT_GIT_COMMIT_TIME
+    fi
+  else
+    unset __CURRENT_GIT_BRANCH __CURRENT_GIT_STATUS __CURRENT_GIT_COMMIT_TIME
   fi
 }
 
