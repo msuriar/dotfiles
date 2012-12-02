@@ -12,17 +12,27 @@ fi
 
 # Git stuff.
 export __CURRENT_GIT_BRANCH=
+export __CURRENT_GIT_STATUS=
 
 parse_git_branch() {
 	git branch --no-color 2> /dev/null \
-	| grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{red}%}git:\1%{%f%}/'
+	| grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{cyan}%}git:\1%{%f%}/'
 }
 
 get_git_prompt_info() {
   if [[ -n ${__CURRENT_GIT_BRANCH} ]] ; then
-    echo "(${__CURRENT_GIT_BRANCH})"
+    echo "(${__CURRENT_GIT_BRANCH}|$__CURRENT_GIT_COMMIT_TIME)"
   else
     echo ""
+  fi
+}
+
+calculate_time_since_commit() {
+  LAST_COMMIT_TIME=$(git log -1 --pretty=format:%at)
+  (( TIME_SINCE_COMMIT = $(date +%s) - ${LAST_COMMIT_TIME} ))
+  if [[ ${TIME_SINCE_COMMIT} -le 1800 ]]; then
+    MINUTES="$((${TIME_SINCE_COMMIT}/60))m"
+    export __CURRENT_GIT_COMMIT_TIME="%{%F{green}%}${MINUTES}%{%f%}"
   fi
 }
 
@@ -31,7 +41,7 @@ export __CURRENT_HG_BRANCH=
 
 parse_hg_branch() {
 	hg branch 2> /dev/null \
-	| sed -e 's/^\(.*\)$/(%{%F{red}%}hg:\1%{%f%})/'
+	| sed -e 's/^\(.*\)$/(%{%F{cyan}%}hg:\1%{%f%})/'
 }
 
 get_hg_prompt_info() {
@@ -42,6 +52,12 @@ get_hg_prompt_info() {
 zsh_update_vcs_vars() {
   export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
   export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
+  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
+    export __CURRENT_GIT_STATUS="$(git status --short)"
+  fi
+  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
+    calculate_time_since_commit
+  fi
 }
 
 # Preexec/chpwd/precmd functions for VCS info.
