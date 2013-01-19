@@ -197,11 +197,6 @@ map <M-.> <C-W><
 " By setting these, the active window will expand to be sufficiently useful.
 set winwidth=84
 
-" Need to set winheight, set small winminheight, then increase winheight.
-set winheight=5
-set winminheight=5
-set winheight=999
-
 " Registers
 nmap <leader>r :registers <CR>
 " map the various registers to a leader shortcut for pasting from them
