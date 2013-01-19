@@ -15,6 +15,9 @@ bindkey -M vicmd v edit-command-line
 REPORTTIME=5
 export REPORTTIME
 
+# If go is installed and has zsh completion info, source it.
+[[ -r $(go env GOROOT)/misc/zsh/go ]] && . $(go env GOROOT)/misc/zsh/go ]]
+
 # Common aliases
 [[ -r ~/.zsh/zsh-aliases.common ]] && . ~/.zsh/zsh-aliases.common
 
