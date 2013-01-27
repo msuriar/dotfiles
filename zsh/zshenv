@@ -1,3 +1,4 @@
+ZCONFDIR="$HOME/.zsh"
 HISTFILE=~/.histfile
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -28,7 +29,7 @@ umask 022
 
 [[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
 
-[[ -r ~/.zsh/zshenv.local ]] && . ~/.zsh/zshenv.local
+[[ -r $ZCONFDIR/zshenv.local ]] && . $ZCONFDIR/zshenv.local
 
-[[ -d ~/.zsh/functions ]] && fpath=(~/.zsh/functions $fpath)
-[[ -d ~/.zsh/functions.local ]] && fpath=(~/.zsh/functions.local $fpath)
+[[ -d $ZCONFDIR/functions ]] && fpath=($ZCONFDIR/functions $fpath)
+[[ -d $ZCONFDIR/functions.local ]] && fpath=($ZCONFDIR/functions.local $fpath)

@@ -1,1 +1,1 @@
-[[ -r ~/.zsh/zprofile.local ]] && . ~/.zsh/zprofile.local
+[[ -r $ZCONFDIR/zprofile.local ]] && . $ZCONFDIR/zprofile.local

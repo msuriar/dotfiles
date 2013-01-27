@@ -19,7 +19,7 @@ alias -g T='| tail'
 # Check if $TMUX is set; failing that, check for the existence of screen
 
 if [[ -n $TMUX ]] ; then
-	[[ -r ~/.zsh/zsh-aliases.tmux ]] && . ~/.zsh/zsh-aliases.tmux
+	[[ -r $ZCONFDIR/zsh-aliases.tmux ]] && . $ZCONFDIR/zsh-aliases.tmux
 elif which screen 1> /dev/null; then
-	[[ -r ~/.zsh/zsh-aliases.screen ]] && . ~/.zsh/zsh-aliases.screen
+	[[ -r $ZCONFDIR/zsh-aliases.screen ]] && . $ZCONFDIR/zsh-aliases.screen
 fi
