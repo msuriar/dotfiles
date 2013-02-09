@@ -4,6 +4,9 @@ compdef "$_comps[telnet]" tmuxTelnet
 compdef "$_comps[vim]" tmuxViRO
 compdef "$_comps[vim]" tmuxViRW
 
+alias ta="tmux attach"
+alias tls="tmux list-sessions"
+alias tn="tmux new-session"
 
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
