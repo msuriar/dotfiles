@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-blackboard"]
 	path = vim/bundle/vim-blackboard
 	url = https://github.com/nelstrom/vim-blackboard
+[submodule "vim/bundle/hardmode"]
+	path = vim/bundle/hardmode
+	url = https://github.com/wikitopian/hardmode.git
