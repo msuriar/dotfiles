@@ -29,9 +29,6 @@ colorscheme solarized
 " Buffer behaviour
 set hidden
 
-" Automatically change directory when moving buffers
-set autochdir
-
 " Custom autocommands
 
 augroup vimrcEx
