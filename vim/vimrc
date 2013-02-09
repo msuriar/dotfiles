@@ -40,6 +40,7 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+  autocmd VimEnter,BufNewFile,BufReadPost * call HardMode()
 augroup END
 
 " Search behaviour
@@ -140,7 +141,6 @@ nmap <leader>s :%s/\<<C-R><C-W>\>/
 
 " leader stuff for toggling interesting things.
 
-nmap <silent><leader>H :setlocal hlsearch! hlsearch? <CR>
 nmap <silent><leader>L :setlocal list! list? <CR>
 nmap <silent><leader>n :setlocal number! number? <CR>
 nmap <silent><leader>P :set paste! paste? <CR>
