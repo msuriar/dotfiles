@@ -16,9 +16,8 @@ alias -g S='| sort'
 alias -g T='| tail'
 
 # Multiplexer logic.
-# Check if $TMUX is set; failing that, check for the existence of screen
 
-if [[ -n $TMUX ]] ; then
+if which tmux 1> /dev/null; then
 	[[ -r $ZCONFDIR/zsh-aliases.tmux ]] && . $ZCONFDIR/zsh-aliases.tmux
 elif which screen 1> /dev/null; then
 	[[ -r $ZCONFDIR/zsh-aliases.screen ]] && . $ZCONFDIR/zsh-aliases.screen
