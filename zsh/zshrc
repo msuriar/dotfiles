@@ -13,7 +13,7 @@ REPORTTIME=5
 export REPORTTIME
 
 # If go is installed and has zsh completion info, source it.
-[[ -r $(go env GOROOT)/misc/zsh/go ]] && . $(go env GOROOT)/misc/zsh/go ]]
+[[ -r $(go env GOROOT 2> /dev/null)/misc/zsh/go ]] && . $(go env GOROOT)/misc/zsh/go ]]
 
 # Common aliases
 [[ -r $ZCONFDIR/zsh-aliases.common ]] && . $ZCONFDIR/zsh-aliases.common
