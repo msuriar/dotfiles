@@ -1,1 +1,1 @@
-[[ -r $ZCONFDIR/zprofile.local ]] && . $ZCONFDIR/zprofile.local
+source_if_readable $ZCONFDIR/zprofile.local

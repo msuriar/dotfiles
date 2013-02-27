@@ -29,10 +29,10 @@ umask 022
 
 [[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
 
-[[ -r $ZCONFDIR/zshenv.local ]] && . $ZCONFDIR/zshenv.local
-
 [[ -d $ZCONFDIR/functions ]] && fpath=($ZCONFDIR/functions $fpath)
 [[ -d $ZCONFDIR/functions.local ]] && fpath=($ZCONFDIR/functions.local $fpath)
 
 [[ -d $ZCONFDIR/functions ]] && autoload $ZCONFDIR/functions/*(:t)
 [[ -d $ZCONFDIR/functions.local ]] && autoload $ZCONFDIR/functions.local/*(:t)
+
+source_if_readable $ZCONFDIR/zshenv.local

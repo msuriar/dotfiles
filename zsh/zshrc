@@ -13,18 +13,16 @@ REPORTTIME=5
 export REPORTTIME
 
 # If go is installed and has zsh completion info, source it.
-[[ -r $(go env GOROOT 2> /dev/null)/misc/zsh/go ]] && . $(go env GOROOT)/misc/zsh/go ]]
+source_if_readable $(go env GOROOT 2> /dev/null)/misc/zsh/go
 
 # Common aliases
-[[ -r $ZCONFDIR/zsh-aliases.common ]] && . $ZCONFDIR/zsh-aliases.common
+source_if_readable $ZCONFDIR/zsh-aliases.common
 
 # Look for and source platform specific files.
-[[ -r $ZCONFDIR/zshrc.$(uname -s) ]] && . $ZCONFDIR/zshrc.$(uname -s)
-[[ -r $ZCONFDIR/zsh-aliases.$(uname -s) ]] && . $ZCONFDIR/zsh-aliases.$(uname -s)
+source_if_readable $ZCONFDIR/zshrc.$(uname -s) $ZCONFDIR/zsh-aliases.$(uname -s)
 
 # Source machine local files if they exist.
-[[ -r $ZCONFDIR/zshrc.local ]] && . $ZCONFDIR/zshrc.local
-[[ -r $ZCONFDIR/zsh-aliases.local ]] && . $ZCONFDIR/zsh-aliases.local
+source_if_readable $ZCONFDIR/zshrc.local $ZCONFDIR/zsh-aliases.local
 
 # Prompt
-[[ -r $ZCONFDIR/zsh-prompt ]] && . $ZCONFDIR/zsh-prompt
+source_if_readable $ZCONFDIR/zsh-prompt

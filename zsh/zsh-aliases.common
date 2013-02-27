@@ -18,7 +18,7 @@ alias -g T='| tail'
 # Multiplexer logic.
 
 if which tmux 1> /dev/null; then
-	[[ -r $ZCONFDIR/zsh-aliases.tmux ]] && . $ZCONFDIR/zsh-aliases.tmux
+  source_if_readable $ZCONFDIR/zsh-aliases.tmux
 elif which screen 1> /dev/null; then
-	[[ -r $ZCONFDIR/zsh-aliases.screen ]] && . $ZCONFDIR/zsh-aliases.screen
+  source_if_readable $ZCONFDIR/zsh-aliases.screen
 fi
