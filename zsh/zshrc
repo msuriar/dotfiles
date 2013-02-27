@@ -3,9 +3,6 @@ autoload -U compinit promptinit edit-command-line
 compinit
 promptinit
 
-[[ -d $ZCONFDIR/functions ]] && autoload $ZCONFDIR/functions/*(:t)
-[[ -d $ZCONFDIR/functions.local ]] && autoload $ZCONFDIR/functions.local/*(:t)
-
 # Editing command lines in vim
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
