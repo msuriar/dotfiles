@@ -28,3 +28,6 @@
 [submodule "vim/bundle/hardmode"]
 	path = vim/bundle/hardmode
 	url = https://github.com/wikitopian/hardmode.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
