@@ -1,0 +1,11 @@
+git/gitconfig .gitconfig
+hc/haskeline .haskeline
+hg/hgrc .hgrc
+misc/editrc .editrc
+misc/inputrc .inputrc
+tmux/tmux.conf .tmux.conf
+vim .vim
+vim/vimrc .vimrc
+zsh/zprofile .zprofile
+zsh/zshenv .zshenv
+zsh/zshrc .zshrc
