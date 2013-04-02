@@ -101,6 +101,10 @@ set spellfile=~/.vim/dict.add
 set backupdir=~/tmp,/tmp
 set directory=~/tmp,/tmp
 
+" Set undo persists across editor restarts.
+set undodir=~/tmp,/tmp
+set undofile
+
 " Multipurpose tab key
 " From garybernhardt's vimrc. If preceding character is a space, tab indents.
 " If it's a keyword character, tab autocompletes.
