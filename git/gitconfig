@@ -29,6 +29,7 @@
   cm = commit -m
   co = checkout
   d = diff
+  dc = diff --cached
   di = diff
   dt = difftool
   l = !. ~/.dotfiles/git/githelpers && gitPrettyLog
