@@ -23,7 +23,7 @@
   enabled = true
 [alias]
   a = add
-  aa = add
+  aa = add --all
   amend = commit --amend
   br = branch -v
   cm = commit -m
