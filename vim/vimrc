@@ -98,8 +98,8 @@ set spell spelllang=en_gb
 set spellfile=~/.vim/dict.add
 
 " Swapfiles in ~/tmp
-set backupdir=~/tmp,/tmp
-set directory=~/tmp,/tmp
+set backupdir=~/tmp//,/tmp//
+set directory=~/tmp//,/tmp//
 
 " Set undo persists across editor restarts.
 set undodir=~/tmp,/tmp
