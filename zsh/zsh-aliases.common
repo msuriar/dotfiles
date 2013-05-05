@@ -6,6 +6,10 @@ alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
 alias vi='vim'
 
+if [[ -r "$ZCONFDIR/functions/g" ]] ; then
+  compdef g=git
+fi
+
 # Global aliases for grep, tail, xargs, etc
 alias -g G='| grep'
 alias -g H='| head'

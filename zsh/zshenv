@@ -35,6 +35,4 @@ umask 022
 [[ -d $ZCONFDIR/functions ]] && autoload $ZCONFDIR/functions/*(:t)
 [[ -d $ZCONFDIR/functions.local ]] && autoload $ZCONFDIR/functions.local/*(:t)
 
-[[ -r $ZCONFDIR/functions/g ]] && compdef g=git
-
 source_if_readable $ZCONFDIR/zshenv.local
