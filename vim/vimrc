@@ -7,21 +7,12 @@ set modelines=1
 
 call pathogen#infect()
 call pathogen#helptags()
-" Enable syntax highlighting options. Need to disable/reenable for pathogen.
-filetype off
-filetype plugin indent on
-syntax enable
-
 
 " Enable per directory .vimrc files as required
 set exrc
 
 " Display behaviour
-set nocompatible	" use vim defaults
 set number				" Always show line numbers
-set ruler					" Always show ruler
-set showcmd				" Always show commands
-set laststatus=2  " Always use a statusbar
 set cursorline    " Highlight line cursor is on
 set notitle
 colorscheme solarized
@@ -44,7 +35,6 @@ augroup vimrcEx
 augroup END
 
 " Search behaviour
-set incsearch
 set nohlsearch
 set ignorecase
 set smartcase
@@ -63,7 +53,6 @@ set viminfo='100,f1
 set history=1000
 
 " Wildcard completion - complete longest common substring
-set wildmenu
 set wildmode=longest:full
 set wildignore+=*.pyc
 
@@ -76,9 +65,6 @@ set clipboard=exclude:.* " don't try and query X server
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
 
-"use :set list! to toggle visible whitespace on/off
-set listchars=tab:>-,trail:.,extends:>
-
 " Tab behaviour
 set tabstop=2
 set shiftwidth=2
@@ -88,7 +74,6 @@ set expandtab
 set textwidth=79
 
 " Show matching brackets
-set showmatch
 set matchtime=3
 
 " Spell checking
