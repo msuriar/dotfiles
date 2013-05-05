@@ -9,6 +9,7 @@ alias vi='vim'
 
 # Only do this if g alias exists.
 if [[ -r "$ZCONFDIR/functions/g" ]] ; then
+  alias git='use_instead g'
   compdef g=git
 fi
 
