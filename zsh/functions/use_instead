@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+echo "NO! Bad $USER! Use '$@' instead."
+return 150
