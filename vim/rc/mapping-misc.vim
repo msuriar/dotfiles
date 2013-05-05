@@ -17,7 +17,3 @@ nmap <leader>s :%s/\<<C-R><C-W>\>/
 " Modify .vimrc and reload it.
 map <leader>v :sp ~/.vimrc<CR><C-W>_
 map <silent><leader>V :source ~/.vimrc \| :filetype detect \| :redraw \| :echo 'vimrc reloaded'<CR>
-
-" Buffer and split navigation
-let g:LustyJugglerSuppressRubyWarning = 1
-nmap <silent><leader>b :LustyJuggler <CR>
