@@ -145,6 +145,9 @@ nmap <leader>s :%s/\<<C-R><C-W>\>/
 
 " leader stuff for toggling interesting things.
 
+nnoremap <leader>h <Esc>:call EasyMode()<CR>
+nnoremap <leader>H <Esc>:call HardMode()<CR>
+
 nmap <silent><leader>L :setlocal list! list? <CR>
 nmap <silent><leader>n :setlocal number! number? <CR>
 nmap <silent><leader>P :set paste! paste? <CR>
