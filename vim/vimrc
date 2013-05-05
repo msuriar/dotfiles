@@ -7,3 +7,7 @@ let mapleader=","
 for f in split(glob('~/.vim/rc/*.vim'), '\n')
   exe 'source' f
 endfor
+
+for f in split(glob('~/.vim/rc.local/*.vim'), '\n')
+  exe 'source' f
+endfor
