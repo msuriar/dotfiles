@@ -1,4 +1,5 @@
 # Aliases common across all OSes
+alias exit='use_instead ^D'
 alias grep=egrep
 alias h1='history 1'
 alias h=history
@@ -6,6 +7,7 @@ alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
 alias vi='vim'
 
+# Only do this if g alias exists.
 if [[ -r "$ZCONFDIR/functions/g" ]] ; then
   compdef g=git
 fi
