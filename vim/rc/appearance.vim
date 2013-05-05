@@ -9,5 +9,4 @@ colorscheme solarized
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
 
-set listchars=tab:>-,trail:.,extends:>
 set list
