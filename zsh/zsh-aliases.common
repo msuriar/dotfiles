@@ -2,11 +2,7 @@
 alias grep=egrep
 alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
-alias vr='vi -R' # Open something read only
-
-# Almost certainly will be reset by screen/tmux equivalents; here as a fallback.
 alias vi='vim'
-alias vr='vim -R'
 
 # Global aliases for grep, tail, xargs, etc
 alias -g G='| grep'
@@ -21,4 +17,12 @@ if which tmux 1> /dev/null; then
   source_if_readable $ZCONFDIR/zsh-aliases.tmux
 elif which screen 1> /dev/null; then
   source_if_readable $ZCONFDIR/zsh-aliases.screen
+else
+  # Fallbacks, if multiplexers don't exist.
+  alias m=man
+  alias s=ssh
+  alias t=telnet
+  alias v=vi
+  alias vr='vim -R'
 fi
+

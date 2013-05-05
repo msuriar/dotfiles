@@ -15,6 +15,5 @@ if [[ -n "$TMUX" ]]; then
   alias tlb=tmuxLoadBufferFromCwd
   alias tlg=tmuxLog
   alias v=tmuxViRW
-  unalias vr # Aliased to 'vi -R' earlier on
   alias vr=tmuxViRO
 fi
