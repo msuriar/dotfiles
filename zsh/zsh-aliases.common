@@ -1,5 +1,7 @@
 # Aliases common across all OSes
 alias grep=egrep
+alias h1='history 1'
+alias h=history
 alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
 alias vi='vim'
