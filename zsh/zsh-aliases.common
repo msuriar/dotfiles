@@ -29,8 +29,10 @@ elif which screen 1> /dev/null; then
   source_if_readable $ZCONFDIR/zsh-aliases.screen
 else
   # Fallbacks, if multiplexers don't exist.
-  alias m=man
-  alias s=ssh
+  alias m='=man'
+  alias man='use_instead m'
+  alias s='=ssh'
+  alias ssh='use_instead s'
   alias t=telnet
   alias v=vi
   alias vr='vim -R'
