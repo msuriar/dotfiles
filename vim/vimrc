@@ -196,3 +196,7 @@ nmap <leader>6 "6p
 nmap <leader>7 "7p
 nmap <leader>8 "8p
 nmap <leader>9 "9p
+
+for f in split(glob('~/.vim/rc/*.vim), '\n')
+  exe 'source' f
+endfor
