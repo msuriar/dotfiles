@@ -1,8 +1,8 @@
-compdef "$_comps[man]" tmuxMan
-compdef "$_comps[ssh]" tmuxSsh
-compdef "$_comps[telnet]" tmuxTelnet
-compdef "$_comps[vim]" tmuxViRO
-compdef "$_comps[vim]" tmuxViRW
+compdef tmuxMan=man
+compdef tmuxSsh=ssh
+compdef tmuxTelnet=telnet
+compdef tmuxViRO=vim
+compdef tmuxViRW=vim
 
 alias ta="tmux attach"
 alias tls="tmux list-sessions"
