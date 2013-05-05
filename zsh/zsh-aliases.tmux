@@ -16,4 +16,10 @@ if [[ -n "$TMUX" ]]; then
   alias tlg=tmuxLog
   alias v=tmuxViRW
   alias vr=tmuxViRO
+else
+  alias m=man
+  alias s=ssh
+  alias t=telnet
+  alias v=vi
+  alias vr='vim -R'
 fi
