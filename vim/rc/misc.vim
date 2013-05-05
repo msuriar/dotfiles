@@ -6,6 +6,8 @@ endif
 set modelines=1
 
 " Enable per directory .vimrc files as required
+" Ensure only secure commands can be run.
+set secure
 set exrc
 
 " Buffer behaviour
