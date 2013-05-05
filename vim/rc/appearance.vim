@@ -1,4 +1,4 @@
-set number				" Always show line numbers
-set cursorline    " Highlight line cursor is on
+set number
+set cursorline
 set notitle
 colorscheme solarized
