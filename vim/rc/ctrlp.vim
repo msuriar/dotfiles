@@ -13,5 +13,5 @@ if has("unix")
     \ }
 endif
 
-map <leader>p :echo "Nope! Use <leader>f instead."
+map <leader>p :echo "Nope! Use <leader>f instead."<CR>
 map <leader>f :<C-U>CtrlP<CR>
