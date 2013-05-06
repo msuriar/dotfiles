@@ -1,6 +1,7 @@
 # Autoloads
-autoload -U compinit promptinit edit-command-line
+autoload -U compinit promptinit edit-command-line bashcompinit
 compinit
+bashcompinit
 promptinit
 
 # Editing command lines in vim
