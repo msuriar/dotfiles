@@ -10,4 +10,5 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
   autocmd VimEnter,BufNewFile,BufReadPost * silent call HardMode()
+  autocmd VimEnter,BufNewFile,BufReadPost * silent source ~/.vim/rc/highlight.vim
 augroup END
