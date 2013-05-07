@@ -13,6 +13,8 @@
 [merge]
   conflictstyle = diff3
   tool = vimdiff
+[pull]
+  rebase = true
 [push]
   default = tracking
 [diff]
