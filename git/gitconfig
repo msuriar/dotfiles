@@ -12,6 +12,7 @@
   interactive = auto
 [merge]
   conflictstyle = diff3
+  ff = true
   tool = vimdiff
 [pull]
   rebase = true
