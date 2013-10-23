@@ -1,8 +1,10 @@
 git/gitconfig .gitconfig
 hc/haskeline .haskeline
 hg/hgrc .hgrc
+i3 .i3
 misc/editrc .editrc
 misc/inputrc .inputrc
+misc/Xresources .Xresources
 tmux/tmux.conf .tmux.conf
 vim .vim
 vim/vimrc .vimrc
