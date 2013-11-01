@@ -1,5 +1,6 @@
 # Aliases common across all OSes
 alias c=cd
+alias dvim='vim -u NONE -N'
 alias exit='use_instead ^D'
 alias grep=egrep
 alias h1='history 1'
