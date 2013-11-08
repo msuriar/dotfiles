@@ -2,7 +2,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " Mappings
-let mapleader=","
+let mapleader=" "
 
 runtime! rc/*.vim
 runtime! rc.local/*.vim
