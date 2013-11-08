@@ -1,3 +1,6 @@
+set splitbelow
+set splitright
+
 map <leader>\| :vsplit<CR>
 map <leader>_ :split<CR>
 
