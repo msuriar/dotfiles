@@ -1,6 +1,7 @@
 map <leader>\| :vsplit<CR>
 map <leader>_ :split<CR>
 
+map <leader>o :only<CR>
 map <leader>q :close<CR>
 
 " Move between splits easily
