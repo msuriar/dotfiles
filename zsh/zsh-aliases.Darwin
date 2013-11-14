@@ -5,3 +5,13 @@ if [ "$TERM" != "dumb" ]; then
     alias l='ls -AFG'
     alias ll='l -l'
 fi
+
+# MacVim equivalents of Vim aliases in zsh-aliases.common
+
+if which mvim 1> /dev/null; then
+  alias dmvim='mvim -u NONE -N'
+  alias emvim='mvim -N -u <(echo filetype plugin on)'
+  if [[ -r $VIMSENSIBLE ]] ; then
+    alias smvim="mvim -u $VIMSENSIBLE"
+  fi
+fi

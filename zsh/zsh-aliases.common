@@ -1,6 +1,5 @@
 # Aliases common across all OSes
 alias c=cd
-alias dvim='vim -u NONE -N'
 alias exit='use_instead ^D'
 alias grep=egrep
 alias h1='history 1'
@@ -8,6 +7,18 @@ alias h=history
 alias radb='whois -h whois.radb.net.'
 alias trace='traceroute'
 alias vi='vim'
+
+# Some vim variants
+## Disable vimrc, but set nocompatible
+alias dvim='vim -u NONE -N'
+
+## As dvim, but enable filetype plugins
+alias evim='vim -N -u <(echo filetype plugin on)'
+
+## If vim-sensible is installed, then svim invokes vim with just that.
+if [[ -r $VIMSENSIBLE ]] ; then
+  alias svim="vim -u $VIMSENSIBLE"
+fi
 
 # Only do this if g alias exists.
 if [[ -r "$ZCONFDIR/functions/g" ]] ; then

@@ -12,6 +12,8 @@ setopt VI # Not required, as EDITOR/VISUAL are set, but still handy
 
 EDITOR=vim
 
+VIMSENSIBLE="$HOME/.vim/bundle/vim-sensible/plugin/sensible.vim"
+
 MANPAGER="zsh -c \"col -b | /usr/bin/vim -R \
   -c 'set nonumber' \
   -c 'set nolist' \
@@ -20,7 +22,7 @@ MANPAGER="zsh -c \"col -b | /usr/bin/vim -R \
 LESS=FRSX
 PAGER=less
 
-export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER LESS PAGER
+export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER LESS PAGER VIMSENSIBLE
 
 # the default umask is set in /etc/login.defs
 umask 022
