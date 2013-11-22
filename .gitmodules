@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-gocode"]
 	path = vim/bundle/vim-gocode
 	url = https://github.com/Blackrush/vim-gocode.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
