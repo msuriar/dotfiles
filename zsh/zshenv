@@ -30,6 +30,15 @@ umask 022
 # set PATH so it includes user's private bin if it exists
 [[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
 
+# Set up go environment properly
+
+if which go 1> /dev/null 2>&1; then
+  if [[ -d ~/src/go ]]; then
+    export GOPATH=~/src/go
+    export PATH="${PATH}:${GOPATH}/bin"
+  fi
+fi
+
 [[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
 
 [[ -d $ZCONFDIR/functions ]] && fpath=($ZCONFDIR/functions $fpath)
