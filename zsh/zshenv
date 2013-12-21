@@ -33,7 +33,7 @@ umask 022
 # Set up go environment properly
 
 if which go 1> /dev/null 2>&1; then
-  if [[ -d ~/src/go ]]; then
+  if [[ -d ~/go ]]; then
     export GOPATH=~/go
     export PATH="${PATH}:${GOPATH}/bin"
   fi
