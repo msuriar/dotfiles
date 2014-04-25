@@ -26,6 +26,12 @@ if [[ -r "$ZCONFDIR/functions/g" ]] ; then
   compdef g=git
 fi
 
+if which task 1> /dev/null; then
+  alias t='=task'
+  alias task='use_instead t'
+  compdef t=task
+fi
+
 # Global aliases for grep, tail, xargs, etc
 alias -g G='| grep'
 alias -g H='| head'
@@ -45,7 +51,6 @@ else
   alias man='use_instead m'
   alias s='=ssh'
   alias ssh='use_instead s'
-  alias t=telnet
   alias v=vi
   alias vr='vim -R'
 fi

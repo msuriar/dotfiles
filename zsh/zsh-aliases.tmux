@@ -11,7 +11,6 @@ alias tn="tmux new-session"
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
   alias s=tmuxSsh
-  alias t=tmuxTelnet
   alias tlb=tmuxLoadBufferFromCwd
   alias tlg=tmuxLog
   alias v=tmuxViRW
@@ -19,7 +18,6 @@ if [[ -n "$TMUX" ]]; then
 else
   alias m=man
   alias s=ssh
-  alias t=telnet
   alias v=vi
   alias vr='vim -R'
 fi
