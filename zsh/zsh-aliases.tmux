@@ -5,8 +5,11 @@ compdef tmuxViRO=vim
 compdef tmuxViRW=vim
 
 alias ta="tmux attach"
+alias tadt="tmux attach -d -t"
+alias tat="tmux attach -t"
 alias tls="tmux list-sessions"
 alias tn="tmux new-session"
+alias tns="tmux new-session -s"
 
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
