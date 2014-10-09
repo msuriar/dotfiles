@@ -6,6 +6,10 @@ if [ "$TERM" != "dumb" ]; then
     alias ll='l -l'
 fi
 
+if [[ -x /usr/local/bin/vim ]]; then
+  alias vim='/usr/local/bin/vim'
+fi
+
 # MacVim equivalents of Vim aliases in zsh-aliases.common
 
 if which mvim 1> /dev/null; then
