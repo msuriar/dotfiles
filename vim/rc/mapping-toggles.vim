@@ -8,7 +8,19 @@ function! NumberToggle()
   endif
 endfunc
 
+function! BackgroundToggle()
+  let Mysyn=&syntax
+  if &background=="light"
+    set background=dark
+  else
+    set background=light
+  endif
+  syntax on
+  execute "setlocal syntax=" . Mysyn
+endfunction
+
 nnoremap <CR> :setlocal hlsearch! hlsearch? <CR>
+nmap <silent><leader>b :call BackgroundToggle()<CR>
 nmap <silent><leader>L :setlocal list! list? <CR>
 nmap <silent><leader>n :call NumberToggle()<CR>
 nmap <silent><leader>P :set paste! paste? <CR>
