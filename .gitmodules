@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-slime"]
 	path = vim/bundle/vim-slime
 	url = https://github.com/jpalardy/vim-slime
+[submodule "vim/bundle/jellybeans.vim"]
+	path = vim/bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim
