@@ -30,6 +30,9 @@ umask 022
 # set PATH so it includes user's private bin if it exists
 [[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
 
+# Homebrew path
+[[ -d /usr/local/sbin ]] && export PATH="${PATH}:/usr/local/sbin"
+
 # Set up go environment properly
 
 if which go 1> /dev/null 2>&1; then
