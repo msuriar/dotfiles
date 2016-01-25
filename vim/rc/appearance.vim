@@ -3,5 +3,5 @@ set relativenumber
 set cursorline
 set notitle
 colorscheme solarized
-set colorcolumn=+1
+execute 'set colorcolumn=+' . join(range(1, 256), ',+')
 set list
