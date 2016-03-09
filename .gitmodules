@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/Zenburn"]
+	path = vim/bundle/Zenburn
+	url = https://github.com/jnurmine/Zenburn
