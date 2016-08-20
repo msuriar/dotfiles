@@ -8,8 +8,11 @@ alias ta="tmux attach"
 alias tadt="tmux attach -d -t"
 alias tat="tmux attach -t"
 alias tls="tmux list-sessions"
+alias tlsb="tmux list-buffers"
 alias tn="tmux new-session"
 alias tns="tmux new-session -s"
+alias tsb="tmux show-buffer"
+alias tsbb="tmux show-buffer -b"
 
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
