@@ -14,7 +14,7 @@ alias tns="tmux new-session -s"
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
   alias s=tmuxSsh
-  alias tlb=tmuxLoadBufferFromCwd
+  alias tlb=tmuxLoadBuffer
   alias tlg=tmuxLog
   alias v=tmuxViRW
   alias vr=tmuxViRO

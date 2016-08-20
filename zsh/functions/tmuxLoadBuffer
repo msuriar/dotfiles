@@ -1,0 +1,16 @@
+#!/bin/zsh
+if [[ $# == 0 ]] ; then
+  src="-"
+elif [[ $# == 1 ]] ; then
+  arg="$1"
+  if [[ "${arg:0:1}" == "/" ]] ; then
+    src=$arg
+  else
+    src="${PWD}/$arg"
+  fi
+else
+  >&2 echo "Must have 0 or 1 arguments."
+  exit 150
+fi
+
+tmux load-buffer "${src}"
