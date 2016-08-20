@@ -7,6 +7,8 @@ compdef tmuxViRW=vim
 alias ta="tmux attach"
 alias tadt="tmux attach -d -t"
 alias tat="tmux attach -t"
+alias tlb=tmuxLoadBuffer
+alias tlg=tmuxLog
 alias tls="tmux list-sessions"
 alias tlsb="tmux list-buffers"
 alias tn="tmux new-session"
@@ -17,8 +19,6 @@ alias tsbb="tmux show-buffer -b"
 if [[ -n "$TMUX" ]]; then
   alias m=tmuxMan
   alias s=tmuxSsh
-  alias tlb=tmuxLoadBuffer
-  alias tlg=tmuxLog
   alias v=tmuxViRW
   alias vr=tmuxViRO
 else
