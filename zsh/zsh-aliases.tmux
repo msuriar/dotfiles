@@ -5,6 +5,7 @@ compdef tmuxViRO=vim
 compdef tmuxViRW=vim
 
 alias ta="tmux attach"
+alias tad="tmux attach -d"
 alias tadt="tmux attach -d -t"
 alias tat="tmux attach -t"
 alias tlb=tmuxLoadBuffer
