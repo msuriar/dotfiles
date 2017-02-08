@@ -17,3 +17,6 @@ nmap <leader>s :%s/\<<C-R><C-W>\>/
 " Modify .vimrc and reload it.
 map <leader>v :sp ~/.vimrc<CR><C-W>_
 map <silent><leader>V :source ~/.vimrc \| :filetype detect \| :redraw \| :echo 'vimrc reloaded'<CR>
+
+" Paste from tmux buffer
+map <leader>p :set paste \| :read !tmux show-buffer 2> /dev/null<CR>:set nopaste<CR>
