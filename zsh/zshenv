@@ -50,4 +50,6 @@ fi
 [[ -d $ZCONFDIR/functions ]] && autoload $ZCONFDIR/functions/*(:t)
 [[ -d $ZCONFDIR/functions.local ]] && autoload $ZCONFDIR/functions.local/*(:t)
 
+[[ -n $commands[keychain] ]] && eval $(keychain -q --eval)
+
 source_if_readable $ZCONFDIR/zshenv.local
