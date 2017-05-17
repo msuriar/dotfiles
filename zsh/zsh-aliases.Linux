@@ -1,17 +1,8 @@
 ### Linux specific stuff
 #
 
-set_colors() {
-  if [ -r ~/.dircolors ]; then
-    eval $(dircolors -b ~/.dircolors)
-  else
-    eval $(dircolors -b)
-  fi
-}
-
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
-    set_colors
     alias l='ls -AF --color=auto'
     alias ll='l -l'
     alias dir='ls --color=auto --format=vertical'

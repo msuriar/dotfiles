@@ -51,5 +51,6 @@ fi
 [[ -d $ZCONFDIR/functions.local ]] && autoload $ZCONFDIR/functions.local/*(:t)
 
 [[ -n $commands[keychain] ]] && eval $(keychain -q --eval)
+[[ -n $commands[dircolors] ]] && eval $(dircolors -b ~/.dircolors)
 
 source_if_readable $ZCONFDIR/zshenv.local

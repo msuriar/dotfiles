@@ -3,6 +3,7 @@ hc/haskeline .haskeline
 hg/hgrc .hgrc
 i3 .i3
 i3/i3status.conf .i3status.conf
+misc/dircolors .dircolors
 misc/editrc .editrc
 misc/inputrc .inputrc
 misc/Xresources .Xresources
