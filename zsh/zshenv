@@ -42,8 +42,6 @@ if which go 1> /dev/null 2>&1; then
   fi
 fi
 
-[[ "$TERM" != "dumb" ]] && export GREP_OPTIONS='--color=auto'
-
 [[ -d $ZCONFDIR/functions ]] && fpath=($ZCONFDIR/functions $fpath)
 [[ -d $ZCONFDIR/functions.local ]] && fpath=($ZCONFDIR/functions.local $fpath)
 

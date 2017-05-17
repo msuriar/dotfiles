@@ -3,6 +3,7 @@
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
+    alias grep='grep --color=auto'
     alias l='ls -AF --color=auto'
     alias ll='l -l'
     alias dir='ls --color=auto --format=vertical'
