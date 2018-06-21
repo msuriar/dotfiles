@@ -23,7 +23,7 @@ p_pwd='%{%F{blue}%}%~%{%f%}'
 p_exit='%(?..[%{%F{red}%}%?%{%f%}])'
 
 base_prompt="[${p_user}@${p_host}:${p_pwd}]${p_exit}"
-vcs_prompt='$(get_git_prompt_info)$(get_hg_prompt_info)'
+vcs_prompt='$(get_vcs_prompt_info)'
 
 PROMPT="${base_prompt}${vcs_prompt}
 %# "

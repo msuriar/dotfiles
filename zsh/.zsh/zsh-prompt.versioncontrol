@@ -31,6 +31,9 @@ get_prompt_from_commit_time() {
   echo "%{%F{${time_color}}%}${time_since}%{%f%}"
 }
 
+get_vcs_prompt_info() {
+  echo "$(get_git_prompt_info)$(get_hg_prompt_info)"
+}
 
 # Update VCS variables
 zsh_update_vcs_vars() {
