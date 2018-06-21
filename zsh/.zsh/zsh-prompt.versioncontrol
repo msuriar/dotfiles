@@ -35,8 +35,13 @@ get_vcs_prompt_info() {
   echo "$(get_git_prompt_info)$(get_hg_prompt_info)"
 }
 
-# Update VCS variables
+zsh_clear_vcs_vars() {
+  zsh_clear_git_vars
+  zsh_clear_hg_vars
+}
+
 zsh_update_vcs_vars() {
+  zsh_clear_vcs_vars
   zsh_update_git_vars
   zsh_update_hg_vars
 }
