@@ -40,9 +40,6 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/.vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/vim-gocode"]
-	path = vim/.vim/bundle/vim-gocode
-	url = https://github.com/Blackrush/vim-gocode.git
 [submodule "vim/bundle/supertab"]
 	path = vim/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
