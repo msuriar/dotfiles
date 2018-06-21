@@ -2,8 +2,8 @@ export __CURRENT_GIT_BRANCH=
 export __CURRENT_GIT_STATUS=
 
 parse_git_branch() {
-	=git branch --no-color 2> /dev/null \
-	| grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{cyan}%}git:\1%{%f%}/'
+  =git branch --no-color 2> /dev/null \
+  | grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{cyan}%}git:\1%{%f%}/'
 }
 
 get_git_prompt_info() {

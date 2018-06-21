@@ -2,8 +2,8 @@ export __CURRENT_HG_BRANCH=
 export __CURRENT_HG_STATUS=
 
 parse_hg_branch() {
-	hg branch 2> /dev/null \
-	| sed -e 's/^\(.*\)$/%{%F{cyan}%}hg:\1%{%f%}/'
+  =hg branch 2> /dev/null \
+  | sed -e 's/^\(.*\)$/%{%F{cyan}%}hg:\1%{%f%}/'
 }
 
 get_hg_prompt_info() {
