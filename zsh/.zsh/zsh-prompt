@@ -7,12 +7,6 @@ setopt promptsubst
 . ${ZCONFDIR}/zsh-prompt.git
 . ${ZCONFDIR}/zsh-prompt.hg
 
-if [[ -n $SSH_CLIENT ]]; then
-	HOSTNAMECOLOUR='cyan'
-else
-	HOSTNAMECOLOUR='green'
-fi
-
 get_prompt_from_commit_time() {
   local commit_time=$1
 
@@ -45,12 +39,21 @@ preexec_functions+='zsh_update_vcs_vars'
 chpwd_functions+='zsh_update_vcs_vars'
 precmd_functions+='zsh_update_vcs_vars'
 
-PROMPT='[%{%F{yellow}%}%n%{%f%}@\
-%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}:\
-%{%F{blue}%}%~%{%f%}]\
-%(?..[%{%F{red}%}%?%{%f%}])\
-$(get_git_prompt_info)\
-$(get_hg_prompt_info)
-%# '
+if [[ -n $SSH_CLIENT ]]; then
+	HOSTNAMECOLOUR='cyan'
+else
+	HOSTNAMECOLOUR='green'
+fi
+
+p_user='%{%F{yellow}%}%n%{%f%}'
+p_host='%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}'
+p_pwd='%{%F{blue}%}%~%{%f%}'
+p_exit='%(?..[%{%F{red}%}%?%{%f%}])'
+
+base_prompt="[${p_user}@${p_host}:${p_pwd}]${p_exit}"
+vcs_prompt='$(get_git_prompt_info)$(get_hg_prompt_info)'
+
+PROMPT="${base_prompt}${vcs_prompt}
+%# "
 
 export PROMPT RPROMPT
