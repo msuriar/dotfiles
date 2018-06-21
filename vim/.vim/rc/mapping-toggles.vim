@@ -1,10 +1,11 @@
 function! NumberToggle()
-  if(&relativenumber == 1)
+  if(&relativenumber == 1 && &number == 1)
     setlocal norelativenumber
-  elseif(&number == 0)
-    setlocal number
+  elseif(&relativenumber == 0 && &number == 1)
+    setlocal nonumber
   else
     setlocal relativenumber
+    setlocal number
   endif
 endfunc
 
