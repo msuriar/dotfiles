@@ -1,0 +1,30 @@
+. ${ZCONFDIR}/zsh-prompt.git
+. ${ZCONFDIR}/zsh-prompt.hg
+
+get_prompt_from_commit_time() {
+  local commit_time=$1
+
+  (( time_since_commit = $(date +%s) - ${commit_time} ))
+  if [[ ${time_since_commit} -le 600 ]]; then
+    time_color="green"
+    time_since="$((${time_since_commit}/60))m"
+  elif [[ ${time_since_commit} -le 3600 ]]; then
+    time_color="yellow"
+    time_since="$((${time_since_commit}/60))m"
+  elif [[ ${time_since_commit} -le 84600 ]]; then
+    time_color="red"
+    time_since="$((${time_since_commit}/3600))h"
+  else
+    time_color="red"
+    time_since="$((${time_since_commit}/84600))d"
+  fi
+  echo "%{%F{${time_color}}%}${time_since}%{%f%}"
+}
+
+
+# Update VCS variables
+zsh_update_vcs_vars() {
+  zsh_update_git_vars
+  zsh_update_hg_vars
+}
+
