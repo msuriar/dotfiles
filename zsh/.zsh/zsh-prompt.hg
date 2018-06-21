@@ -28,8 +28,12 @@ zsh_update_hg_vars() {
       unset __CURRENT_HG_COMMIT_TIME
     fi
   else
-    unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
+    zsh_clear_hg_vars
   fi
+}
+
+zsh_clear_hg_vars() {
+  unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
 }
 
 get_hg_time_since_commit() {

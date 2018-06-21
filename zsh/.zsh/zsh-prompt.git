@@ -34,6 +34,10 @@ zsh_update_git_vars() {
       unset __CURRENT_GIT_COMMIT_TIME
     fi
   else
-    unset __CURRENT_GIT_BRANCH __CURRENT_GIT_STATUS __CURRENT_GIT_COMMIT_TIME
+    zsh_clear_git_vars
   fi
+}
+
+zsh_clear_git_vars() {
+  unset __CURRENT_GIT_BRANCH __CURRENT_GIT_STATUS __CURRENT_GIT_COMMIT_TIME
 }
