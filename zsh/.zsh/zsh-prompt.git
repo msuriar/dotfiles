@@ -41,3 +41,7 @@ zsh_update_git_vars() {
 zsh_clear_git_vars() {
   unset __CURRENT_GIT_BRANCH __CURRENT_GIT_STATUS __CURRENT_GIT_COMMIT_TIME
 }
+
+in_git_repo() {
+  =git branch --quiet 1> /dev/null 2>&1
+}

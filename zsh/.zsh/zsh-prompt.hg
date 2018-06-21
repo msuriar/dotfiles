@@ -36,6 +36,10 @@ zsh_clear_hg_vars() {
   unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
 }
 
+in_hg_repo() {
+  =hg book --quiet 1> /dev/null 2>&1
+}
+
 get_hg_time_since_commit() {
   last_commit_time=$(hg log -l1 --template "{date|hgdate}" | cut -f1 -d' ')
   __CURRENT_HG_COMMIT_TIME=$(get_prompt_from_commit_time ${last_commit_time})

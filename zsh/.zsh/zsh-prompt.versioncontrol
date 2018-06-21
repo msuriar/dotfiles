@@ -42,7 +42,10 @@ zsh_clear_vcs_vars() {
 
 zsh_update_vcs_vars() {
   zsh_clear_vcs_vars
-  zsh_update_git_vars
-  zsh_update_hg_vars
+  if in_git_repo; then
+    zsh_update_git_vars
+  elif in_hg_repo; then
+    zsh_update_hg_vars
+  fi
 }
 
