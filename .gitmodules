@@ -58,3 +58,6 @@
 [submodule "solarized"]
 	path = solarized
 	url = https://github.com/altercation/solarized
+[submodule "vim/.vim/bundle/vim-polyglot"]
+	path = vim/.vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
