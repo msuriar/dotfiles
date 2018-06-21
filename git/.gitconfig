@@ -35,7 +35,6 @@
   dc = diff --cached
   di = diff
   dt = difftool
-  l = !. ~/.dotfiles/git/githelpers && gitPrettyLog
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
   rh = reset --hard
   s = status --short
