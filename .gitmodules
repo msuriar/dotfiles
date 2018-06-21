@@ -58,3 +58,6 @@
 [submodule "vim/.vim/bundle/vim-polyglot"]
 	path = vim/.vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.vim/bundle/lightline"]
+	path = vim/.vim/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git
