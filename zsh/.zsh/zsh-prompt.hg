@@ -1,0 +1,39 @@
+export __CURRENT_HG_BRANCH=
+export __CURRENT_HG_STATUS=
+
+parse_hg_branch() {
+	hg branch 2> /dev/null \
+	| sed -e 's/^\(.*\)$/%{%F{cyan}%}hg:\1%{%f%}/'
+}
+
+get_hg_prompt_info() {
+  if [[ -n ${__CURRENT_HG_BRANCH} ]] ; then
+    if [[ -n ${__CURRENT_HG_COMMIT_TIME} ]]; then
+      echo "(${__CURRENT_HG_BRANCH}|$__CURRENT_HG_COMMIT_TIME)"
+    else
+      echo "($__CURRENT_HG_BRANCH)"
+    fi
+  else
+    echo ""
+  fi
+}
+
+zsh_update_hg_vars() {
+  export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
+  if [[ -n ${__CURRENT_HG_BRANCH} ]]; then
+    export __CURRENT_HG_STATUS="$(hg status)"
+    if [[ -n ${__CURRENT_HG_STATUS} ]]; then
+      get_hg_time_since_commit
+    else
+      unset __CURRENT_HG_COMMIT_TIME
+    fi
+  else
+    unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
+  fi
+}
+
+get_hg_time_since_commit() {
+  last_commit_time=$(hg log -l1 --template "{date|hgdate}" | cut -f1 -d' ')
+  __CURRENT_HG_COMMIT_TIME=$(get_prompt_from_commit_time ${last_commit_time})
+  export __CURRENT_HG_COMMIT_TIME
+}

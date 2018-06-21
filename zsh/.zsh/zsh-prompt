@@ -4,6 +4,9 @@ typeset -ga precmd_functions
 typeset -ga chpwd_functions
 setopt promptsubst
 
+. ${ZCONFDIR}/zsh-prompt.git
+. ${ZCONFDIR}/zsh-prompt.hg
+
 if [[ -n $SSH_CLIENT ]]; then
 	HOSTNAMECOLOUR='cyan'
 else
@@ -30,87 +33,6 @@ get_prompt_from_commit_time() {
   echo "%{%F{${time_color}}%}${time_since}%{%f%}"
 }
 
-# Git stuff.
-export __CURRENT_GIT_BRANCH=
-export __CURRENT_GIT_STATUS=
-
-parse_git_branch() {
-	=git branch --no-color 2> /dev/null \
-	| grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{cyan}%}git:\1%{%f%}/'
-}
-
-get_git_prompt_info() {
-  if [[ -n ${__CURRENT_GIT_BRANCH} ]] ; then
-    if [[ -n ${__CURRENT_GIT_COMMIT_TIME} ]]; then
-      echo "(${__CURRENT_GIT_BRANCH}|$__CURRENT_GIT_COMMIT_TIME)"
-    else
-      echo "($__CURRENT_GIT_BRANCH)"
-    fi
-  else
-    echo ""
-  fi
-}
-
-get_git_time_since_commit() {
-  last_commit_time=$(=git log -1 --pretty=format:%at)
-  __CURRENT_GIT_COMMIT_TIME=$(get_prompt_from_commit_time ${last_commit_time})
-  export __CURRENT_GIT_COMMIT_TIME
-}
-
-zsh_update_git_vars() {
-  export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
-  if [[ -n ${__CURRENT_GIT_BRANCH} ]]; then
-    export __CURRENT_GIT_STATUS="$(=git status --short)"
-    if [[ -n ${__CURRENT_GIT_STATUS} ]]; then
-      get_git_time_since_commit
-    else
-      unset __CURRENT_GIT_COMMIT_TIME
-    fi
-  else
-    unset __CURRENT_GIT_BRANCH __CURRENT_GIT_STATUS __CURRENT_GIT_COMMIT_TIME
-  fi
-}
-
-# HG stuff.
-export __CURRENT_HG_BRANCH=
-export __CURRENT_HG_STATUS=
-
-parse_hg_branch() {
-	hg branch 2> /dev/null \
-	| sed -e 's/^\(.*\)$/%{%F{cyan}%}hg:\1%{%f%}/'
-}
-
-get_hg_prompt_info() {
-  if [[ -n ${__CURRENT_HG_BRANCH} ]] ; then
-    if [[ -n ${__CURRENT_HG_COMMIT_TIME} ]]; then
-      echo "(${__CURRENT_HG_BRANCH}|$__CURRENT_HG_COMMIT_TIME)"
-    else
-      echo "($__CURRENT_HG_BRANCH)"
-    fi
-  else
-    echo ""
-  fi
-}
-
-zsh_update_hg_vars() {
-  export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
-  if [[ -n ${__CURRENT_HG_BRANCH} ]]; then
-    export __CURRENT_HG_STATUS="$(hg status)"
-    if [[ -n ${__CURRENT_HG_STATUS} ]]; then
-      get_hg_time_since_commit
-    else
-      unset __CURRENT_HG_COMMIT_TIME
-    fi
-  else
-    unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
-  fi
-}
-
-get_hg_time_since_commit() {
-  last_commit_time=$(hg log -l1 --template "{date|hgdate}" | cut -f1 -d' ')
-  __CURRENT_HG_COMMIT_TIME=$(get_prompt_from_commit_time ${last_commit_time})
-  export __CURRENT_HG_COMMIT_TIME
-}
 
 # Update VCS variables
 zsh_update_vcs_vars() {
