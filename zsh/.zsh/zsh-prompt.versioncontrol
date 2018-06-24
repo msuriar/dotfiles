@@ -32,20 +32,34 @@ get_prompt_from_commit_time() {
 }
 
 get_vcs_prompt_info() {
-  echo "$(get_git_prompt_info)$(get_hg_prompt_info)"
+  if in_git_repo ; then
+    branch_name="%{%F{cyan}%}git:${VCS_BRANCH}%{%f%}"
+    if [[ -v VCS_REPO_DIRTY ]] ; then
+      commit_delay=$(get_prompt_from_commit_time ${VCS_LAST_COMMIT_TIME})
+      echo "(${branch_name}|${commit_delay})"
+    else
+      echo "(${branch_name})"
+    fi
+  elif in_hg_repo ; then
+    echo "$(get_hg_prompt_info)"
+  else
+    echo ""
+  fi
 }
 
 zsh_clear_vcs_vars() {
   zsh_clear_git_vars
   zsh_clear_hg_vars
+  unset VCS_BRANCH
+  unset VCS_LAST_COMMIT_TIME
+  unset VCS_REPO_DIRTY
 }
 
 zsh_update_vcs_vars() {
   zsh_clear_vcs_vars
   if in_git_repo; then
     zsh_update_git_vars
-  elif in_hg_repo; then
-    zsh_update_hg_vars
+    zsh_update_git_params
   fi
 }
 

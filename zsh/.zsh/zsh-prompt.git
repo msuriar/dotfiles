@@ -6,6 +6,18 @@ parse_git_branch() {
   | grep '^\*' | sed -e 's/^\* \(.*\)/%{%F{cyan}%}git:\1%{%f%}/'
 }
 
+current_branch() {
+  =git branch --no-color 2> /dev/null | awk '/\*/ { print $2 }'
+}
+
+last_commit_time() {
+  =git log -1 --pretty=format:%at
+}
+
+repo_dirty() {
+  [[ -n $(=git status --short) ]]
+}
+
 get_git_prompt_info() {
   if [[ -n ${__CURRENT_GIT_BRANCH} ]] ; then
     if [[ -n ${__CURRENT_GIT_COMMIT_TIME} ]]; then
@@ -35,6 +47,16 @@ zsh_update_git_vars() {
     fi
   else
     zsh_clear_git_vars
+  fi
+}
+
+zsh_update_git_params() {
+  export VCS_BRANCH=$(current_branch)
+  export VCS_LAST_COMMIT_TIME=$(last_commit_time)
+  if repo_dirty ; then
+    VCS_REPO_DIRTY=1
+  else
+    unset VCS_REPO_DIRTY
   fi
 }
 
