@@ -44,9 +44,7 @@ get_vcs_prompt_info() {
     else
       branch_name="%{%F{cyan}%}${vcs_name}%{%f%}"
     fi
-  fi
 
-  if in_git_repo || in_hg_repo ; then
     if [[ -v VCS_REPO_DIRTY ]] ; then
       commit_delay=$(get_prompt_from_commit_time ${VCS_LAST_COMMIT_TIME})
       echo "(${branch_name}|${commit_delay})"
