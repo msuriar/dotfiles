@@ -1,47 +1,35 @@
-export __CURRENT_HG_BRANCH=
-export __CURRENT_HG_STATUS=
-
-parse_hg_branch() {
-  =hg branch 2> /dev/null \
-  | sed -e 's/^\(.*\)$/%{%F{cyan}%}hg:\1%{%f%}/'
+hg_bookmark_active() {
+  =hg book --color=never | fgrep -q '*'
 }
 
-get_hg_prompt_info() {
-  if [[ -n ${__CURRENT_HG_BRANCH} ]] ; then
-    if [[ -n ${__CURRENT_HG_COMMIT_TIME} ]]; then
-      echo "(${__CURRENT_HG_BRANCH}|$__CURRENT_HG_COMMIT_TIME)"
-    else
-      echo "($__CURRENT_HG_BRANCH)"
-    fi
+hg_current_bookmark() {
+  =hg book --color=never | fgrep '*' | awk '{ print $2 }'
+}
+
+hg_last_commit_time() {
+  =hg log --limit=1 --template "{date|hgdate}" | cut -d' ' -f1
+}
+
+hg_repo_dirty() {
+  [[ -n $(=hg status) ]]
+}
+
+zsh_update_hg_params() {
+  if hg_bookmark_active ; then
+    VCS_BRANCH=$(hg_current_bookmark)
   else
-    echo ""
+    unset VCS_BRANCH
   fi
-}
 
-zsh_update_hg_vars() {
-  export __CURRENT_HG_BRANCH="$(parse_hg_branch)"
-  if [[ -n ${__CURRENT_HG_BRANCH} ]]; then
-    export __CURRENT_HG_STATUS="$(hg status)"
-    if [[ -n ${__CURRENT_HG_STATUS} ]]; then
-      get_hg_time_since_commit
-    else
-      unset __CURRENT_HG_COMMIT_TIME
-    fi
+  VCS_LAST_COMMIT_TIME=$(hg_last_commit_time)
+
+  if hg_repo_dirty; then
+    VCS_REPO_DIRTY=1
   else
-    zsh_clear_hg_vars
+    unset VCS_REPO_DIRTY
   fi
-}
-
-zsh_clear_hg_vars() {
-  unset __CURRENT_HG_BRANCH __CURRENT_HG_STATUS __CURRENT_HG_COMMIT_TIME
 }
 
 in_hg_repo() {
   =hg book --quiet 1> /dev/null 2>&1
-}
-
-get_hg_time_since_commit() {
-  last_commit_time=$(hg log -l1 --template "{date|hgdate}" | cut -f1 -d' ')
-  __CURRENT_HG_COMMIT_TIME=$(get_prompt_from_commit_time ${last_commit_time})
-  export __CURRENT_HG_COMMIT_TIME
 }
