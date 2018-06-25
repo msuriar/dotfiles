@@ -11,8 +11,8 @@ git_repo_dirty() {
 }
 
 zsh_update_git_params() {
-  export VCS_BRANCH=$(git_current_branch)
-  export VCS_LAST_COMMIT_TIME=$(git_last_commit_time)
+  VCS_BRANCH=$(git_current_branch)
+  VCS_LAST_COMMIT_TIME=$(git_last_commit_time)
   if git_repo_dirty ; then
     VCS_REPO_DIRTY=1
   else
