@@ -48,7 +48,6 @@ get_vcs_prompt_info() {
 }
 
 zsh_clear_vcs_vars() {
-  zsh_clear_git_vars
   zsh_clear_hg_vars
   unset VCS_BRANCH
   unset VCS_LAST_COMMIT_TIME
@@ -58,7 +57,6 @@ zsh_clear_vcs_vars() {
 zsh_update_vcs_vars() {
   zsh_clear_vcs_vars
   if in_git_repo; then
-    zsh_update_git_vars
     zsh_update_git_params
   fi
 }
