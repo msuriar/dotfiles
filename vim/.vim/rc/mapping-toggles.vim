@@ -22,6 +22,7 @@ endfunction
 
 nnoremap <CR> :setlocal hlsearch! hlsearch? <CR>
 nmap <silent><leader>b :call BackgroundToggle()<CR>
+nmap <silent><leader>g :Goyo<CR>
 nmap <silent><leader>L :setlocal list! list? <CR>
 nmap <silent><leader>n :call NumberToggle()<CR>
 nmap <silent><leader>P :set paste! paste? <CR>
