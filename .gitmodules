@@ -64,3 +64,6 @@
 [submodule "vim/.vim/bundle/goyo.vim"]
 	path = vim/.vim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "vim/bundle/vim-solarized8"]
+	path = vim/bundle/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
