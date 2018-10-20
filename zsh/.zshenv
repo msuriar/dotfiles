@@ -16,13 +16,17 @@ VIMSENSIBLE="$HOME/.vim/bundle/vim-sensible/plugin/sensible.vim"
 
 MANPAGER="zsh -c \"col -b | /usr/bin/vim -R \
   -c 'set nonumber' \
+  -c 'set norelativenumber' \
   -c 'set nolist' \
   -c 'set nomodifiable' \
   -c 'set syntax=man' -\""
+
+MANWIDTH=80
+
 LESS=FRSX
 PAGER=less
 
-export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER LESS PAGER VIMSENSIBLE
+export HISTFILE HISTSIZE SAVEHIST EDITOR MANPAGER MANWIDTH LESS PAGER VIMSENSIBLE
 
 # the default umask is set in /etc/login.defs
 umask 022
