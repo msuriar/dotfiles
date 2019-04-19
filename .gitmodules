@@ -67,3 +67,6 @@
 [submodule "vim/bundle/vim-solarized8"]
 	path = vim/.vim/bundle/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule "vim/.vim/bundle/vim-ledger"]
+	path = vim/.vim/bundle/vim-ledger
+	url = https://github.com/ledger/vim-ledger.git
