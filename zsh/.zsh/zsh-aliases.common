@@ -32,6 +32,11 @@ if which task 1> /dev/null; then
   compdef t=task
 fi
 
+if which hledger 1> /dev/null; then
+  alias hl='=hledger'
+  alias hledger='use_instead hledger'
+fi
+
 # Global aliases for grep, tail, xargs, etc
 alias -g G='| grep'
 alias -g H='| head'
