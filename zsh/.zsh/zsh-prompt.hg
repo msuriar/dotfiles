@@ -31,5 +31,13 @@ zsh_update_hg_params() {
 }
 
 in_hg_repo() {
-  =hg book --quiet 1> /dev/null 2>&1
+  local dir=${PWD}
+  while [[ ${dir} != "/" ]] ; do
+    if [[ -f ${dir}/.hg/dirstate ]] ; then
+      return 0
+    else
+      dir="${dir:h}"
+    fi
+  done
+  return 1
 }
