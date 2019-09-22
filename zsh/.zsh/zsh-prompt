@@ -1,14 +1,10 @@
 # Options enabling hooks and substitutions
-typeset -ga preexec_functions
 typeset -ga precmd_functions
-typeset -ga chpwd_functions
 setopt promptsubst
 
 . ${ZCONFDIR}/zsh-prompt.versioncontrol
 
 # Preexec/chpwd/precmd functions for VCS info.
-preexec_functions+='zsh_update_vcs_vars'
-chpwd_functions+='zsh_update_vcs_vars'
 precmd_functions+='zsh_update_vcs_vars'
 
 if [[ -n $SSH_CLIENT ]]; then
