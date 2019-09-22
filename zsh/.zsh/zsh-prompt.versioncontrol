@@ -32,13 +32,7 @@ get_prompt_from_commit_time() {
 }
 
 get_vcs_prompt_info() {
-  if in_git_repo ; then
-    vcs_name="git"
-  elif in_hg_repo ; then
-    vcs_name="hg"
-  fi
-
-  if in_git_repo || in_hg_repo ; then
+  if [[ -v vcs_name ]] ; then
     if [[ -v VCS_BRANCH ]]; then
       branch_name="%{%F{cyan}%}${vcs_name}:${VCS_BRANCH}%{%f%}"
     else
@@ -65,9 +59,13 @@ zsh_clear_vcs_vars() {
 zsh_update_vcs_vars() {
   zsh_clear_vcs_vars
   if in_git_repo; then
+    vcs_name="git"
     zsh_update_git_params
   elif in_hg_repo; then
+    vcs_name="hg"
     zsh_update_hg_params
+  else
+    unset vcs_name
   fi
 }
 
