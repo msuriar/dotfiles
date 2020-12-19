@@ -8,4 +8,6 @@ func RunPythonTests()
   let l:writeall = ":wa \| "
   return l:writeall . g:runtests
 endfunc
+
 map <buffer> <leader>t :execute RunPythonTests()<CR>
+map <buffer> <leader>r :wa \| :!./%<CR>
