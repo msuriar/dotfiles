@@ -20,3 +20,6 @@ map <silent><leader>V :source ~/.vimrc \| :filetype detect \| :redraw \| :echo '
 
 " Paste from tmux buffer
 map <leader>p :set paste \| :read !tmux show-buffer 2> /dev/null<CR>:set nopaste<CR>
+
+" %% in command mode to get directory of current file.
+cnoremap %% <C-R>=expand('%:p:h')<CR>
