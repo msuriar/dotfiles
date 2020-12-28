@@ -5,7 +5,9 @@ else
 endif
 
 func RunPythonTests()
-  return ':wa | :!' . g:python . ' -m unittest discover'
+  let l:newscratch = ':6new | :setlocal buftype=nofile'
+  let l:runtests = ' :read !' . g:python . ' -m unittest discover'
+  return ':wa' .'|'. l:newscratch .'|'. l:runtests
 endfunc
 
 map <buffer> <leader>t :execute RunPythonTests()<CR>
