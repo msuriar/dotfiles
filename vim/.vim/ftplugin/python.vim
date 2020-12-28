@@ -1,12 +1,11 @@
 if executable('python3')
-  let g:runtests = ':!python3 -m unittest discover'
+  let g:python = 'python3'
 else
-  let g:runtests = ':!python -m unittest discover'
+  let g:python = 'python'
 endif
 
 func RunPythonTests()
-  let l:writeall = ":wa \| "
-  return l:writeall . g:runtests
+  return ':wa | :!' . g:python . ' -m unittest discover'
 endfunc
 
 map <buffer> <leader>t :execute RunPythonTests()<CR>
