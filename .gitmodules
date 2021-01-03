@@ -73,3 +73,6 @@
 [submodule "tmux-colors-solarized"]
 	path = tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
+[submodule "vim/.vim/bundle/flattened"]
+	path = vim/.vim/bundle/flattened
+	url = https://github.com/romainl/flattened.git
