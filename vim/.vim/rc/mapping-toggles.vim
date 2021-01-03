@@ -13,9 +13,12 @@ function! BackgroundToggle()
   let Mysyn=&syntax
   if &background=="light"
     set background=dark
+    colorscheme flattened_dark
   else
     set background=light
+    colorscheme flattened_light
   endif
+
   syntax on
   execute "setlocal syntax=" . Mysyn
 endfunction

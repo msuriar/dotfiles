@@ -6,6 +6,6 @@ let g:markdown_folding = 1
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 set termguicolors
-colorscheme solarized8
+colorscheme flattened_dark
 execute 'set colorcolumn=+' . join(range(1, 256), ',+')
 set list
