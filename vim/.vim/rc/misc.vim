@@ -18,7 +18,9 @@ set viminfo='100,f1
 set history=1000
 
 " Clipboard behaviour
-set clipboard=exclude:.* " don't try and query X server
+if !has('nvim')
+  set clipboard=exclude:.* " don't try and query X server
+endif
 
 " Show matching brackets
 set matchtime=3
