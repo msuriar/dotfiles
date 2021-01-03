@@ -73,3 +73,6 @@
 [submodule "vim/.vim/bundle/flattened"]
 	path = vim/.vim/bundle/flattened
 	url = https://github.com/romainl/flattened.git
+[submodule "vim/.vim/bundle/vim-hardtime"]
+	path = vim/.vim/bundle/vim-hardtime
+	url = https://github.com/takac/vim-hardtime.git
