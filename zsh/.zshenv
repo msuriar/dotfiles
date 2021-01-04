@@ -14,7 +14,7 @@ EDITOR=vim
 
 VIMSENSIBLE="$HOME/.vim/bundle/vim-sensible/plugin/sensible.vim"
 
-MANPAGER="zsh -c \"col -b | /usr/bin/vim -R \
+MANPAGER="zsh -c \"col -b | nvim -R \
   -c 'set nonumber' \
   -c 'set norelativenumber' \
   -c 'set nolist' \
