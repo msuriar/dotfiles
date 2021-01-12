@@ -9,22 +9,12 @@ fi
 # Add aliases to homebrew binaries which are referenced earlier in PATH
 homebrew_path="/usr/local/bin"
 homebrew_ssh_binaries=(${homebrew_path}/ssh*(:t))
-homebrew_binaries=(${homebrew_ssh_binaries} vim)
 
-for b in ${homebrew_binaries} ; do
+for b in ${homebrew_ssh_binaries} ; do
   target="${homebrew_path}/${b}"
   if [[ -x $target ]] ; then
     alias ${b}=${target}
   fi
 done
-unset homebrew_binaries homebrew_path homebrew_ssh_binaries
+unset homebrew_path homebrew_ssh_binaries
 
-# MacVim equivalents of Vim aliases in zsh-aliases.common
-
-if which mvim 1> /dev/null; then
-  alias dmvim='mvim -u NONE -N'
-  alias emvim='mvim -N -u <(echo filetype plugin on)'
-  if [[ -r $VIMSENSIBLE ]] ; then
-    alias smvim="mvim -u $VIMSENSIBLE"
-  fi
-fi
