@@ -1,3 +1,6 @@
+" Chosen to be consistent with psf/black coding style.
+set textwidth=88
+
 if executable('python3')
   let g:python = 'python3'
 else
