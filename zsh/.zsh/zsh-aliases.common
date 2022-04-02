@@ -53,8 +53,6 @@ alias -g T='| tail'
 
 if which tmux 1> /dev/null; then
   source_if_readable $ZCONFDIR/zsh-aliases.tmux
-elif which screen 1> /dev/null; then
-  source_if_readable $ZCONFDIR/zsh-aliases.screen
 else
   # Fallbacks, if multiplexers don't exist.
   alias m='=man'
