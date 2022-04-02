@@ -1,5 +1,0 @@
-Config {
-  font = "xft:Sans-9",
-  lowerOnStart = True,
-  template = "Test"
-}
