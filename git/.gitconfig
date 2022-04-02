@@ -40,3 +40,4 @@
   s = status --short
   st = status --short
   stat = status --short
+  sw = switch
