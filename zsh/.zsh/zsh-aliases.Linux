@@ -8,5 +8,4 @@ if [ "$TERM" != "dumb" ]; then
     alias ll='l -l'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
-    #alias screen='TERM=screen screen'
 fi
