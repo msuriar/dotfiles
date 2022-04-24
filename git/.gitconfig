@@ -1,7 +1,6 @@
 # vi:filetype=gitconfig
-[user]
-  name = Murali Suriar
-  email = code@suriar.com
+[include]
+  path = ~/.git_author
 [core]
   excludesfile = ~/.dotfiles/git/ignore
   pager = less -FSRX
