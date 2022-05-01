@@ -37,6 +37,11 @@ if which task 1> /dev/null; then
   compdef t=task
 fi
 
+if which timew 1> /dev/null; then
+  alias tw='=timew'
+  alias timew='use_instead tw'
+fi
+
 if which hledger 1> /dev/null; then
   alias hl='=hledger'
   alias hledger='use_instead hledger'
