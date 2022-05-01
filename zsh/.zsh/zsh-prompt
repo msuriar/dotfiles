@@ -1,11 +1,4 @@
-# Options enabling hooks and substitutions
-typeset -ga precmd_functions
 setopt promptsubst
-
-. ${ZCONFDIR}/zsh-prompt.versioncontrol
-
-# Preexec/chpwd/precmd functions for VCS info.
-precmd_functions+='zsh_update_vcs_vars'
 
 if [[ -n $SSH_CLIENT ]]; then
 	HOSTNAMECOLOUR='cyan'
@@ -19,9 +12,8 @@ p_pwd='%{%F{blue}%}%~%{%f%}'
 p_exit='%(?..[%{%F{red}%}%?%{%f%}])'
 
 base_prompt="[${p_user}@${p_host}:${p_pwd}]${p_exit}"
-vcs_prompt='$(get_vcs_prompt_info)'
 
-PROMPT="${base_prompt}${vcs_prompt}
+PROMPT="${base_prompt}
 %# "
 
 export PROMPT RPROMPT
