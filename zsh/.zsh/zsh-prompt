@@ -1,19 +1,4 @@
-setopt promptsubst
+source_if_readable ${ZCONFDIR}/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+source_if_readable ~/.p10k.zsh
 
-if [[ -n $SSH_CLIENT ]]; then
-	HOSTNAMECOLOUR='cyan'
-else
-	HOSTNAMECOLOUR='green'
-fi
-
-p_user='%{%F{yellow}%}%n%{%f%}'
-p_host='%{%F{$HOSTNAMECOLOUR}%}%m%{%f%}'
-p_pwd='%{%F{blue}%}%~%{%f%}'
-p_exit='%(?..[%{%F{red}%}%?%{%f%}])'
-
-base_prompt="[${p_user}@${p_host}:${p_pwd}]${p_exit}"
-
-PROMPT="${base_prompt}
-%# "
-
-export PROMPT RPROMPT
