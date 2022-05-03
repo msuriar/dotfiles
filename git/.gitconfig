@@ -3,7 +3,7 @@
   path = ~/.git_author
 [core]
   excludesfile = ~/.dotfiles/git/ignore
-  pager = less -FSRX
+  pager = (type delta > /dev/null 2>&1 && delta | less -FSRX) || less -FSRX
 [color]
   diff = auto
   status = auto
