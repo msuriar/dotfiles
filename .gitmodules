@@ -79,3 +79,6 @@
 [submodule "powerlevel10k"]
 	path = zsh/.zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "vim/.vim/bundle/calendar-vim"]
+	path = vim/.vim/bundle/calendar-vim
+	url = https://github.com/mattn/calendar-vim
