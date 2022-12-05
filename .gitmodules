@@ -82,3 +82,6 @@
 [submodule "vim/.vim/bundle/calendar-vim"]
 	path = vim/.vim/bundle/calendar-vim
 	url = https://github.com/mattn/calendar-vim
+[submodule "vim/.vim/bundle/vim-go"]
+	path = vim/.vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
