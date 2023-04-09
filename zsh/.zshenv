@@ -42,7 +42,7 @@ umask 022
 if which go 1> /dev/null 2>&1; then
   if [[ -d ~/go ]]; then
     export GOPATH=~/go
-    export PATH="${PATH}:${GOPATH}/bin"
+    export PATH="${PATH}:$(go env GOPATH)/bin"
   fi
 fi
 
