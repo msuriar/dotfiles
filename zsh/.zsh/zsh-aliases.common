@@ -9,6 +9,7 @@ alias trace='traceroute'
 
 if which nvim 1> /dev/null ; then
   alias vim='nvim'
+  alias vimdiff='nvim -d'
 fi
 
 alias vi='vim'
