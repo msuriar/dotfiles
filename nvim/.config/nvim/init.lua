@@ -49,16 +49,20 @@ keymap("n", "<C-j>", [[<C-w>j]], {})
 keymap("n", "<C-k>", [[<C-w>k]], {})
 keymap("n", "<C-l>", [[<C-w>l]], {})
 
---[[
-function! NumberToggle()
-  if(&relativenumber == 1 && &number == 1)
-    setlocal norelativenumber
-  elseif(&relativenumber == 0 && &number == 1)
-    setlocal nonumber
-  else
-    setlocal relativenumber
-    setlocal number
-  endif
-endfunc
-nmap <silent><leader>n :call NumberToggle()<CR>
---]]
+
+-- Rotate between various combinations of number/relativenumber settings
+local function numbertoggle()
+	if (vim.o.relativenumber and vim.o.number)
+		then
+			vim.opt_local.relativenumber = false
+	elseif (not vim.o.relativenumber and vim.o.number)
+		then
+			vim.opt_local.number = false
+		else
+			vim.opt_local.relativenumber = true
+			vim.opt_local.number = true
+	end
+end
+
+-- ... and bind to <leader>n
+vim.keymap.set("n", "<leader>n", numbertoggle, {})
