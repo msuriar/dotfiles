@@ -1,3 +1,25 @@
+-- Plugins
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+	{"catppuccin/nvim", name = "catppuccin"},
+	{"nvim-lua/popup.nvim"},
+} )
+-- End plugins
+
+vim.cmd.colorscheme "catppuccin-frappe"
+
 -- Options
 --- Appearance
 vim.opt.list = true
@@ -21,25 +43,6 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- End options
-
--- Plugins
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	{"nvim-lua/popup.nvim"},
-} )
--- End plugins
 
 -- Mappings
 --- convenience alias
