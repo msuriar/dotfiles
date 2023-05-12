@@ -15,7 +15,28 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{"catppuccin/nvim", name = "catppuccin"},
 	{"nvim-lua/popup.nvim"},
-} )
+	{"L3MON4D3/LuaSnip"},
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+		},
+		config = function()
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+			})
+		end
+	},
+})
 -- End plugins
 
 vim.cmd.colorscheme "catppuccin-frappe"
