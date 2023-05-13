@@ -13,80 +13,80 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{"catppuccin/nvim", name = "catppuccin"},
-	{"nvim-lua/popup.nvim"},
-	{"L3MON4D3/LuaSnip"},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-		},
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			luasnip.config.setup {}
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert {
-					['<C-n>'] = cmp.mapping.select_next_item(),
-					['<C-p>'] = cmp.mapping.select_prev_item(),
-					['<C-d>'] = cmp.mapping.scroll_docs(-4),
-					['<C-f>'] = cmp.mapping.scroll_docs(4),
-					['<CR>'] = cmp.mapping.confirm { select = true },
-					['<Tab>'] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						elseif cmp.visible() then
-							cmp.select_next_item()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end, { 'i', 's' }),
-					['<S-Tab>'] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { 'i', 's' }),
-				},
-				preselect = cmp.PreselectMode.None,
-				window = {
-					documentation = cmp.config.window.bordered(),
-				},
-				view = {
-					entries = {
-						name = "custom",
-						selection_order = "near_cursor",
-					},
-				},
-				confirm_opts = {
-					behavior = cmp.ConfirmBehavior.Insert,
-				},
-				sources = {
-					{ name = 'nvim_lsp' },
-					{ name = "luasnip", keyword_length = 2},
-					{ name = "buffer", keyword_length = 5},
-				},
-			})
-		end
-	},
+  {"catppuccin/nvim", name = "catppuccin"},
+  {"nvim-lua/popup.nvim"},
+  {"L3MON4D3/LuaSnip"},
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function()
+      local cmp = require("cmp")
+      local luasnip = require("luasnip")
+      luasnip.config.setup {}
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert {
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
+            elseif cmp.visible() then
+              cmp.select_next_item()
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        },
+        preselect = cmp.PreselectMode.None,
+        window = {
+          documentation = cmp.config.window.bordered(),
+        },
+        view = {
+          entries = {
+            name = "custom",
+            selection_order = "near_cursor",
+          },
+        },
+        confirm_opts = {
+          behavior = cmp.ConfirmBehavior.Insert,
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = "luasnip", keyword_length = 2},
+          { name = "buffer", keyword_length = 5},
+        },
+      })
+    end
+  },
 })
 -- End plugins
 
@@ -154,16 +154,16 @@ keymap("n", "<C-l>", [[<C-w>l]], {})
 
 --- Rotate between various combinations of number/relativenumber settings
 local function numbertoggle()
-	if (vim.o.relativenumber and vim.o.number)
-		then
-			vim.opt_local.relativenumber = false
-	elseif (not vim.o.relativenumber and vim.o.number)
-		then
-			vim.opt_local.number = false
-		else
-			vim.opt_local.relativenumber = true
-			vim.opt_local.number = true
-	end
+  if (vim.o.relativenumber and vim.o.number)
+    then
+      vim.opt_local.relativenumber = false
+  elseif (not vim.o.relativenumber and vim.o.number)
+    then
+      vim.opt_local.number = false
+    else
+      vim.opt_local.relativenumber = true
+      vim.opt_local.number = true
+  end
 end
 
 --- ... and bind to <leader>n
