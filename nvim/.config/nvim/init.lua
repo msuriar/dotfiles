@@ -107,6 +107,12 @@ vim.opt.wildmode = "longest:full"
 vim.cmd "highlight RedundantSpaces term=standout ctermbg=red guibg=red"
 vim.cmd [[match RedundantSpaces /\s\+$\| \+\ze\t/]] -- \ze sets end of match so only spaces highlighted
 
+--- Indentation
+vim.opt.expandtab = true  -- expand tabs into spaces
+vim.opt.shiftwidth = 2    -- number of spaces to use for each step of indent.
+vim.opt.tabstop = 2       -- number of spaces a TAB counts for
+vim.opt.autoindent = true -- copy indent from current line when starting a new line
+
 --- Scrolling
 vim.opt.scrolloff = 20
 
