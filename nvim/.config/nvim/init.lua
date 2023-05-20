@@ -87,8 +87,17 @@ require("lazy").setup({
       })
     end
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    }
+  },
 })
 -- End plugins
+
+
 
 vim.cmd.colorscheme "catppuccin-frappe"
 
@@ -151,6 +160,12 @@ keymap("n", "<C-j>", [[<C-w>j]], {})
 keymap("n", "<C-k>", [[<C-w>k]], {})
 keymap("n", "<C-l>", [[<C-w>l]], {})
 
+--- Telescope
+local tsb = require('telescope.builtin')
+vim.keymap.set("n", "<leader>ff", tsb.find_files, {})
+vim.keymap.set("n", "<leader>fg", tsb.live_grep, {})
+vim.keymap.set("n", "<leader>fb", tsb.buffers, {})
+vim.keymap.set("n", "<leader>fh", tsb.help_tags, {})
 
 --- Rotate between various combinations of number/relativenumber settings
 local function numbertoggle()
