@@ -104,7 +104,7 @@ require("lazy").setup({
         'williamboman/mason.nvim',
         build = function()
           pcall(vim.cmd, 'MasonUpdate')
-        end,
+        end
       },
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
@@ -113,6 +113,27 @@ require("lazy").setup({
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
       {'L3MON4D3/LuaSnip'},     -- Required
     }
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      local tsconfig = require('nvim-treesitter.configs')
+      tsconfig.setup(
+        {
+          ensure_installed = 'all',
+          sync_install = false,
+          ignore_install = { "" }, -- List of parsers to ignore installing
+          highlight = {
+            enable = true, -- false will disable the whole extension
+            disable = { "" }, -- list of language that will be disabled
+            additional_vim_regex_highlighting = true,
+
+          },
+          indent = { enable = true, disable = { "yaml" } },
+        }
+      )
+    end
   }
 })
 -- End plugins
