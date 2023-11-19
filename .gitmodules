@@ -1,84 +1,9 @@
-[submodule "vim/bundle/DirDiff.vim"]
-	path = vim/.vim/bundle/DirDiff.vim
-	url = https://github.com/duellj/DirDiff.vim.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/.vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/fugitive.vim"]
-	path = vim/.vim/bundle/fugitive.vim
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
-[submodule "vim/bundle/ir_black"]
-	path = vim/.vim/bundle/ir_black
-	url = https://github.com/twerth/ir_black.git
-[submodule "vim/bundle/vim-blackboard"]
-	path = vim/.vim/bundle/vim-blackboard
-	url = https://github.com/nelstrom/vim-blackboard
-[submodule "vim/bundle/syntastic"]
-	path = vim/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/vim-surround"]
-	path = vim/.vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-sensible"]
-	path = vim/.vim/bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/.vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/vim-unimpaired"]
-	path = vim/.vim/bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/supertab"]
-	path = vim/.vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
-[submodule "vim/bundle/vim-slime"]
-	path = vim/.vim/bundle/vim-slime
-	url = https://github.com/jpalardy/vim-slime
-[submodule "vim/bundle/jellybeans.vim"]
-	path = vim/.vim/bundle/jellybeans.vim
-	url = https://github.com/nanotech/jellybeans.vim
-[submodule "vim/bundle/vim-repeat"]
-	path = vim/.vim/bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
 [submodule "solarized"]
 	path = solarized
 	url = https://github.com/altercation/solarized
-[submodule "vim/.vim/bundle/vim-polyglot"]
-	path = vim/.vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule "vim/.vim/bundle/lightline"]
-	path = vim/.vim/bundle/lightline
-	url = https://github.com/itchyny/lightline.vim.git
-[submodule "vim/.vim/bundle/goyo.vim"]
-	path = vim/.vim/bundle/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
-[submodule "vim/bundle/vim-solarized8"]
-	path = vim/.vim/bundle/vim-solarized8
-	url = https://github.com/lifepillar/vim-solarized8.git
-[submodule "vim/.vim/bundle/vim-ledger"]
-	path = vim/.vim/bundle/vim-ledger
-	url = https://github.com/ledger/vim-ledger.git
-[submodule "vim/.vim/bundle/flattened"]
-	path = vim/.vim/bundle/flattened
-	url = https://github.com/romainl/flattened.git
-[submodule "vim/.vim/bundle/vim-hardtime"]
-	path = vim/.vim/bundle/vim-hardtime
-	url = https://github.com/takac/vim-hardtime.git
-[submodule "vim/.vim/bundle/vimwiki"]
-	path = vim/.vim/bundle/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
 [submodule "powerlevel10k"]
 	path = zsh/.zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "vim/.vim/bundle/calendar-vim"]
-	path = vim/.vim/bundle/calendar-vim
-	url = https://github.com/mattn/calendar-vim
-[submodule "vim/.vim/bundle/vim-go"]
-	path = vim/.vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
