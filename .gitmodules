@@ -64,9 +64,6 @@
 [submodule "vim/.vim/bundle/vim-ledger"]
 	path = vim/.vim/bundle/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
-[submodule "tmux-colors-solarized"]
-	path = tmux-colors-solarized
-	url = https://github.com/seebi/tmux-colors-solarized.git
 [submodule "vim/.vim/bundle/flattened"]
 	path = vim/.vim/bundle/flattened
 	url = https://github.com/romainl/flattened.git
