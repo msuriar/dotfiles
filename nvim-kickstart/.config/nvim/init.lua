@@ -208,6 +208,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function(args)
+		vim.keymap.set("n", "<leader>t", ":wa|!go test<cr>")
+		vim.keymap.set("n", "<leader>x", ":wa|!go run ./%<cr>")
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function(args)
+		vim.keymap.set("n", "<leader>t", ":wa|!python3 -m unittest<cr>")
+		vim.keymap.set("n", "<leader>x", ":wa|!python3 ./%<cr>")
+	end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -282,15 +298,6 @@ require("lazy").setup({
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
 			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
 		end,
 	},
 
@@ -820,7 +827,7 @@ require("lazy").setup({
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
 			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.config").setup(opts)
 
 			-- There are additional nvim-treesitter modules that you can use to interact
 			-- with nvim-treesitter. You should go explore a few and see what interests you:
