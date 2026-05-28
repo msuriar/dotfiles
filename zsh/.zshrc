@@ -10,6 +10,9 @@ autoload -U compinit promptinit edit-command-line bashcompinit
 compinit
 bashcompinit
 promptinit
+if which jj 1> /dev/null ; then
+  . <(jj util completion zsh)
+fi
 
 # Editing command lines in vim
 zle -N edit-command-line
@@ -38,3 +41,11 @@ source_if_readable $ZCONFDIR/zshrc.local $ZCONFDIR/zsh-aliases.local
 # Prompt
 source_if_readable $ZCONFDIR/zsh-prompt
 
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+export HISTSIZE SAVEHIST
+
+eval "$(atuin init zsh)"
+
+export AWS_SDK_LOAD_CONFIG=true
