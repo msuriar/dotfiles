@@ -26,9 +26,13 @@ umask 022
 
 # set PATH so it includes user's private bin if it exists
 [[ -d ~/bin ]] && export PATH=~/bin:"${PATH}"
+[[ -d /usr/local/sbin ]] && export PATH="${PATH}:/usr/local/sbin"
 
 # Homebrew path
-[[ -d /usr/local/sbin ]] && export PATH="${PATH}:/usr/local/sbin"
+if which brew 1> /dev/null 2> &1 ; then
+  eval $(/opt/homebrew/bin/brew shellenv zsh)
+  export PATH="{PATH}:${HOMEBREW_PREFIX}/bin"
+fi
 
 # Set up go environment properly
 
