@@ -5,8 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if which brew 1> /dev/null 2>&1 ; then
+  FPATH=$(brew --prefix)/share/zsh-completions:${FPATH}
+fi
 # Autoloads
-autoload -U compinit promptinit edit-command-line bashcompinit
+autoload -Uz compinit promptinit edit-command-line bashcompinit
 compinit
 bashcompinit
 promptinit
