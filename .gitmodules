@@ -5,5 +5,5 @@
 	path = solarized
 	url = https://github.com/altercation/solarized
 [submodule "powerlevel10k"]
-	path = zsh/.zsh/powerlevel10k
+	path = zsh/.config/zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
