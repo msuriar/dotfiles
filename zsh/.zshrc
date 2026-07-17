@@ -52,3 +52,5 @@ export HISTSIZE SAVEHIST
 eval "$(atuin init zsh)"
 
 export AWS_SDK_LOAD_CONFIG=true
+
+source_if_readable $ZCONFDIR/zshrc.local
