@@ -1,6 +1,5 @@
 # Aliases common across all OSes
 alias c=cd
-alias exit='use_instead ^D'
 alias grep=egrep
 alias h1='history 1'
 alias h=history
@@ -27,28 +26,6 @@ if [[ -r $VIMSENSIBLE ]] ; then
   alias svim="vim -u $VIMSENSIBLE"
 fi
 
-# Only do this if g alias exists.
-if [[ -r "$ZCONFDIR/functions/g" ]] ; then
-  alias git='use_instead g'
-  compdef g=git
-fi
-
-if which task 1> /dev/null; then
-  alias t='=task'
-  alias task='use_instead t'
-  compdef t=task
-fi
-
-if which timew 1> /dev/null; then
-  alias tw='=timew'
-  alias timew='use_instead tw'
-fi
-
-if which hledger 1> /dev/null; then
-  alias hl='=hledger'
-  alias hledger='use_instead hledger'
-fi
-
 # Global aliases for grep, tail, xargs, etc
 alias -g G='| grep'
 alias -g H='| head'
@@ -63,9 +40,7 @@ if which tmux 1> /dev/null; then
 else
   # Fallbacks, if multiplexers don't exist.
   alias m='=man'
-  alias man='use_instead m'
   alias s='=ssh'
-  alias ssh='use_instead s'
   alias v=vi
   alias vr='vim -R'
 fi
