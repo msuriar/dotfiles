@@ -1,6 +1,4 @@
 # vi:filetype=gitconfig
-[include]
-  path = ~/.git_author
 [core]
   excludesfile = ~/.dotfiles/git/ignore
   pager = (type delta > /dev/null 2>&1 && delta | less -FSRX) || less -FSRX
@@ -42,7 +40,9 @@
   sw = switch
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
+[include]
+  path = ~/.config/git/config.local
